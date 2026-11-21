@@ -1,0 +1,4 @@
+import 'package:flutter/material.dart';
+void main() => runApp(const MaterialApp(home: TextFieldDemo()));
+class TextFieldDemo extends StatefulWidget { const TextFieldDemo({super.key}); @override State<TextFieldDemo> createState() => _TextFieldDemoState(); }
+class _TextFieldDemoState extends State<TextFieldDemo> { String value = ''; @override Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('TextField')), body: Padding(padding: const EdgeInsets.all(24), child: Column(mainAxisSize: MainAxisSize.min, children: [TextField(decoration: const InputDecoration(labelText: 'Your name', hintText: 'Enter your name', border: OutlineInputBorder(), prefixIcon: Icon(Icons.person)), onChanged: (text) => setState(() => value = text)), const SizedBox(height: 18), Text('Hello, $value', style: const TextStyle(fontSize: 20))]))); }
