@@ -1,0 +1,4 @@
+name: FlutterLab AppBar Example
+mode: flutter
+files:
+  - name: main.dart
