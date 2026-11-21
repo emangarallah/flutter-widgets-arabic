@@ -1,0 +1,4 @@
+name: FlutterLab Row Example
+mode: flutter
+files:
+  - name: main.dart
