@@ -113,8 +113,8 @@
         <div class="runner-top"><button class="back-btn" id="runner-back">→ العودة للشرح</button><div><span class="runner-label">INTERACTIVE PLAYGROUND</span><h1>مساحة التشغيل</h1><p>عدّل كود Dart وشغّله في بيئة Flutter داخل المتصفح.</p></div><span class="online-status"><i></i> DartPad</span></div>
         <div class="runner-workspace">
           <div class="runner-editor">
-            <div class="editor-head"><div><span class="file-icon">D</span><b>main.dart</b><small>محرر المثال</small></div><button class="reset-btn" id="reset-code">↺ إعادة ضبط</button></div>
-            <textarea id="runner-code" spellcheck="false" aria-label="محرر كود Dart" dir="ltr"></textarea>
+            <div class="editor-head"><div><span class="file-icon">D</span><b>main.dart</b><small>مرجع الكود — التعديل داخل DartPad</small></div><button class="reset-btn" id="reset-code">↺ إعادة تحميل المثال</button></div>
+            <textarea id="runner-code" spellcheck="false" aria-label="مرجع كود Dart — عدّل الكود داخل DartPad" dir="ltr" readonly></textarea>
             <div class="editor-foot"><span><i></i> Dart / Flutter</span><span id="runner-widget-name">Container</span></div>
             <button class="primary-btn run-code-btn" id="run-code">▶ تشغيل الكود</button>
           </div>
@@ -342,7 +342,7 @@ window.WIDGETS = knownWidgets.map((item, index) => {
   for (const widget of widgets) {
     if (DARTPAD_SAMPLE_NAMES.has(widget.name)) widget.dartpadPath = 'dartpad_samples/' + widget.name.toLowerCase();
   }
-  const state = { category:'all', query:'', favorites:new Set(JSON.parse(localStorage.getItem('flutterlab-favorites') || '[]')), selected:null, view:'catalog', favoritesOnly:false, currentCode:'', dartpadLoaded:false, snippets:[], theme:localStorage.getItem('flutterlab-theme') || 'dark' };
+  const state = { category:'all', query:'', favorites:new Set(JSON.parse(localStorage.getItem('flutterlab-favorites') || '[]')), selected:null, view:'catalog', favoritesOnly:false, currentCode:'', dartpadLoaded:false, dartpadFrame:null, dartpadUrl:'', dartpadWidgetId:null, snippets:[], theme:localStorage.getItem('flutterlab-theme') || 'dark' };
   const savedIds = () => [...state.favorites];
   const saveFavorites = () => localStorage.setItem('flutterlab-favorites', JSON.stringify(savedIds()));
   const category = (id) => categories.find(x => x.id === id) || categories[0];
@@ -469,9 +469,11 @@ window.WIDGETS = knownWidgets.map((item, index) => {
     state.runnerOfficialDefault = widget.sampleId ? `// Flutter official sample: ${widget.sampleId}\n// Press Run to load the official editable DartPad example.\n` : '';
     $('#runner-code').value = widget.code || state.runnerOfficialDefault;
     $('#runner-widget-name').textContent = widget.name;
-    $('#dartpad-frame-wrap').innerHTML = `<div class="runner-placeholder"><div class="runner-spinner">▶</div><h3>جارٍ تجهيز المثال...</h3><p>يتم الآن فتح محرر Flutter وتحميل المثال تلقائياً.</p></div>`;
+    if (state.dartpadWidgetId !== widget.id || !state.dartpadFrame) {
+      $('#dartpad-frame-wrap').innerHTML = `<div class="runner-placeholder"><div class="runner-spinner">▶</div><h3>جارٍ تجهيز المثال...</h3><p>يتم تحميل محرر Flutter لأول مرة لهذا المثال.</p></div>`;
+    }
     changeView('runner');
-    // Start the example immediately; the user can still edit the code and run it again.
+    // Load each sample once. Keep its iframe alive when the user returns to this view.
     runCode();
   }
 
@@ -486,9 +488,13 @@ window.WIDGETS = knownWidgets.map((item, index) => {
   }
 
   function runCode() {
-    const code = $('#runner-code').value.trim();
-    if (!code) return;
-    state.currentCode = code;
+    const holder = $('#dartpad-frame-wrap');
+    if (!state.selected || !(state.selected.dartpadPath || state.selected.sampleId)) return;
+    // Reuse the same live DartPad instance instead of downloading and booting Flutter again.
+    if (state.dartpadFrame && state.dartpadWidgetId === state.selected.id && state.dartpadFrame.isConnected) {
+      $('.output-live').innerHTML = '<i></i> EDITOR READY';
+      return;
+    }
     const holder = $('#dartpad-frame-wrap');
     holder.innerHTML = '';
     if (state.selected?.dartpadPath || state.selected?.sampleId) {
@@ -512,9 +518,15 @@ window.WIDGETS = knownWidgets.map((item, index) => {
       frame.style.width = '100%';
       frame.style.height = '640px';
       frame.style.border = '0';
-      frame.addEventListener('load', () => { $('.output-live').innerHTML = '<i></i> DARTPAD LOADED'; });
+      frame.addEventListener('load', () => {
+        state.dartpadLoaded = true;
+        $('.output-live').innerHTML = '<i></i> EDITOR LOADED';
+      });
+      state.dartpadFrame = frame;
+      state.dartpadUrl = url.toString();
+      state.dartpadWidgetId = state.selected.id;
       holder.appendChild(frame);
-      $('.output-live').innerHTML = '<i></i> CONNECTING';
+      $('.output-live').innerHTML = '<i></i> LOADING EDITOR';
     } else {
       holder.innerHTML = '<div class="runner-placeholder"><div class="runner-spinner">!</div><h3>لا يتوفر تشغيل مباشر لهذا المثال</h3><p>يمكنك نسخ الكود من المحرر وفتحه في DartPad. بعض الأمثلة تحتاج إلى حزم أو إمكانات غير متاحة في DartPad.</p><a class="secondary-btn" href="https://dartpad.dev/" target="_blank" rel="noreferrer">فتح DartPad في نافذة جديدة ↗</a></div>';
       $('.output-live').innerHTML = '<i></i> CODE READY';
@@ -553,7 +565,6 @@ window.WIDGETS = knownWidgets.map((item, index) => {
       }
       // Refresh selected details after dynamic examples are discovered.
       if (state.selected) updateRunnerAvailability(state.selected);
-      if (state.view === 'runner' && state.selected?.sampleId) runCode();
       counts();
     } catch (error) {
       console.info('Official sample index is unavailable; using bundled examples.', error);
@@ -590,7 +601,13 @@ window.WIDGETS = knownWidgets.map((item, index) => {
   $('#detail-favorite').addEventListener('click', () => { if (state.selected) toggleFavorite(state.selected.id); });
   $('#run-code').addEventListener('click', runCode);
   $('#dartpad-frame-wrap').addEventListener('click', (event) => { if (event.target.closest('#load-sample')) runCode(); });
-  $('#reset-code').addEventListener('click', () => { if (state.selected) $('#runner-code').value = state.selected.code || state.runnerOfficialDefault || ''; });
+  $('#reset-code').addEventListener('click', () => {
+    if (!state.selected || !state.dartpadFrame || state.dartpadWidgetId !== state.selected.id) return;
+    // Explicit reload is available, but normal Run clicks never restart the compiler.
+    $('.output-live').innerHTML = '<i></i> RELOADING';
+    state.dartpadLoaded = false;
+    state.dartpadFrame.src = state.dartpadUrl;
+  });
   $('#theme-toggle').addEventListener('click', () => setTheme(state.theme === 'dark' ? 'light' : 'dark'));
   $$('.top-link[data-view]').forEach(btn => btn.addEventListener('click', () => {
     if (btn.dataset.view === 'runner') {
