@@ -478,9 +478,10 @@ window.WIDGETS = knownWidgets.map((item, index) => {
     state.currentCode = code;
     const holder = $('#dartpad-frame-wrap');
     holder.innerHTML = '';
-    if (state.selected?.sampleId && code === state.runnerOfficialDefault) {
+    if (state.selected?.sampleId) {
       const url = new URL('https://dartpad.dev/embed-flutter.html');
       url.searchParams.set('sample_id', state.selected.sampleId);
+      url.searchParams.set('sample_channel', 'stable');
       url.searchParams.set('theme', 'dark');
       url.searchParams.set('run', 'true');
       url.searchParams.set('split', '45');
@@ -488,12 +489,16 @@ window.WIDGETS = knownWidgets.map((item, index) => {
       frame.title = `Official Flutter sample for ${state.selected.name}`;
       frame.src = url.toString();
       frame.setAttribute('allow', 'clipboard-read; clipboard-write; fullscreen');
+      frame.style.width = '100%';
+      frame.style.height = '640px';
+      frame.style.border = '0';
+      frame.addEventListener('load', () => { $('.output-live').innerHTML = '<i></i> DARTPAD LOADED'; });
       holder.appendChild(frame);
+      $('.output-live').innerHTML = '<i></i> CONNECTING';
     } else {
-      holder.appendChild(makeDartPadFrame(code));
+      holder.innerHTML = '<div class="runner-placeholder"><div class="runner-spinner">!</div><h3>لا يتوفر تشغيل مباشر لهذا المثال</h3><p>يمكنك نسخ الكود من المحرر وفتحه في DartPad. بعض الأمثلة تحتاج إلى حزم أو إمكانات غير متاحة في DartPad.</p><a class="secondary-btn" href="https://dartpad.dev/" target="_blank" rel="noreferrer">فتح DartPad في نافذة جديدة ↗</a></div>';
+      $('.output-live').innerHTML = '<i></i> CODE READY';
     }
-    $('.output-live').innerHTML = '<i></i> LOADING';
-    window.setTimeout(() => { $('.output-live').innerHTML = '<i></i> EMBEDDED'; }, 1600);
   }
 
   async function copyText(text) {
@@ -515,7 +520,6 @@ window.WIDGETS = knownWidgets.map((item, index) => {
       state.snippets = data.filter(s => s.package === 'flutter' && s.channel === 'stable' && s.id && s.element);
       // Add official DartPad samples to reference entries that do not have a hand-authored code sample.
       for (const widget of widgets) {
-        if (widget.code) continue;
         const found = state.snippets.find(s => s.element === widget.name || s.element.endsWith(`.${widget.name}`));
         if (found) {
           widget.sampleId = found.id;
