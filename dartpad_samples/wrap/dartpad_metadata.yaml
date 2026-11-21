@@ -1,0 +1,4 @@
+name: FlutterLab Wrap Example
+mode: flutter
+files:
+  - name: main.dart
