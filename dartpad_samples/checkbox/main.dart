@@ -1,0 +1,4 @@
+import 'package:flutter/material.dart';
+void main() => runApp(const MaterialApp(home: CheckboxDemo()));
+class CheckboxDemo extends StatefulWidget { const CheckboxDemo({super.key}); @override State<CheckboxDemo> createState() => _CheckboxDemoState(); }
+class _CheckboxDemoState extends State<CheckboxDemo> { bool accepted = false; @override Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('Checkbox')), body: Center(child: Row(mainAxisSize: MainAxisSize.min, children: [Checkbox(value: accepted, onChanged: (value) => setState(() => accepted = value ?? false)), const Text('I agree to the terms')]))); }
