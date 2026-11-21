@@ -1,0 +1,4 @@
+name: FlutterLab Column Example
+mode: flutter
+files:
+  - name: main.dart
