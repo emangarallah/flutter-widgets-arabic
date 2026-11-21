@@ -405,7 +405,15 @@ window.WIDGETS = knownWidgets.map((item, index) => {
     if (view === 'detail') $('#detail-view').classList.add('active');
     if (view === 'runner') $('#runner-view').classList.add('active');
     $$('.top-link[data-view]').forEach(btn => btn.classList.toggle('active', btn.dataset.view === (view === 'detail' ? 'catalog' : view)));
-    window.scrollTo({top:0, behavior:'smooth'});
+    // Reset the page scroll after the new view becomes visible (important on mobile browsers).
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      const activeView = view === 'catalog' ? $('#catalog-view') : view === 'detail' ? $('#detail-view') : $('#runner-view');
+      if (activeView) activeView.scrollIntoView({ block: 'start', behavior: 'auto' });
+    };
+    requestAnimationFrame(() => requestAnimationFrame(scrollToTop));
   }
 
   function renderPreview(widget) {
