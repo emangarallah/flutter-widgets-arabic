@@ -533,6 +533,7 @@ window.WIDGETS = knownWidgets.map((item, index) => {
       }
       // Refresh selected details after dynamic examples are discovered.
       if (state.selected) updateRunnerAvailability(state.selected);
+      if (state.view === 'runner' && state.selected?.sampleId) runCode();
       counts();
     } catch (error) {
       console.info('Official sample index is unavailable; using bundled examples.', error);
