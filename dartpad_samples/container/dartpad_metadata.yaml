@@ -1,0 +1,4 @@
+name: FlutterLab Container Example
+mode: flutter
+files:
+  - name: main.dart
