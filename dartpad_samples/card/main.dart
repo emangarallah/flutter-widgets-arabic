@@ -1,0 +1,3 @@
+import 'package:flutter/material.dart';
+void main() => runApp(const DemoApp());
+class DemoApp extends StatelessWidget { const DemoApp({super.key}); @override Widget build(BuildContext context) => MaterialApp(debugShowCheckedModeBanner:false, theme:ThemeData(colorSchemeSeed:Colors.deepPurple,useMaterial3:true),home:Scaffold(appBar:AppBar(title:const Text('Card Widget')),body:Center(child:Card(elevation: 4, child: SizedBox(width: 250, child: Padding(padding: const EdgeInsets.all(20), child: Column(mainAxisSize: MainAxisSize.min, children: [const Icon(Icons.school, size: 38, color: Colors.deepPurple), const SizedBox(height: 12), const Text('Learn Flutter', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)), const Text('Build beautiful apps')]))))))); }
