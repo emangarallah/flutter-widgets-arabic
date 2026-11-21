@@ -1,0 +1,4 @@
+name: FlutterLab Text Example
+mode: flutter
+files:
+  - name: main.dart
