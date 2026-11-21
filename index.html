@@ -337,6 +337,11 @@ window.WIDGETS = knownWidgets.map((item, index) => {
   const $$ = (selector) => [...document.querySelectorAll(selector)];
   const widgets = window.WIDGETS || [];
   const categories = window.WIDGET_CATEGORIES || [];
+  const DARTPAD_REPO = { owner: 'emangarallah', repo: 'flutter-widgets-arabic', ref: 'main' };
+  const DARTPAD_SAMPLE_NAMES = new Set(['Text','Container','Center','Padding','SizedBox','Row','Column','Card','AppBar','Scaffold','ElevatedButton','OutlinedButton','TextButton','TextField','Checkbox']);
+  for (const widget of widgets) {
+    if (DARTPAD_SAMPLE_NAMES.has(widget.name)) widget.dartpadPath = 'dartpad_samples/' + widget.name.toLowerCase();
+  }
   const state = { category:'all', query:'', favorites:new Set(JSON.parse(localStorage.getItem('flutterlab-favorites') || '[]')), selected:null, view:'catalog', favoritesOnly:false, currentCode:'', dartpadLoaded:false, snippets:[], theme:localStorage.getItem('flutterlab-theme') || 'dark' };
   const savedIds = () => [...state.favorites];
   const saveFavorites = () => localStorage.setItem('flutterlab-favorites', JSON.stringify(savedIds()));
@@ -344,7 +349,7 @@ window.WIDGETS = knownWidgets.map((item, index) => {
   const getWidget = (id) => widgets.find(x => x.id === id);
   const escapeHtml = (str) => String(str).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
   const codeFor = (widget) => widget?.code || `import 'package:flutter/material.dart';\n\nvoid main() {\n  runApp(const MaterialApp(\n    home: Scaffold(\n      body: Center(\n        child: Text('${widget?.name || 'Flutter'} example'),\n      ),\n    ),\n  ));\n}\n`;
-  const sampleText = (widget) => widget?.code ? 'مثال مدمج' : widget?.sampleId ? 'مثال Flutter الرسمي' : 'مرجع API';
+  const sampleText = (widget) => widget?.dartpadPath ? 'مثال تفاعلي قابل للتشغيل' : widget?.sampleId ? 'مثال Flutter الرسمي' : 'مرجع API';
 
   function setTheme(theme) {
     state.theme = theme;
@@ -428,9 +433,9 @@ window.WIDGETS = knownWidgets.map((item, index) => {
     $('#detail-docs').href = widget.docs;
     $('#detail-favorite').textContent = state.favorites.has(widget.id) ? '♥' : '♡';
     $('#detail-favorite').style.color = state.favorites.has(widget.id) ? '#f4a6c6' : '';
-    $('#detail-run').disabled = !(widget.code || widget.sampleId);
-    $('#detail-run').style.opacity = (widget.code || widget.sampleId) ? '1' : '.45';
-    $('#detail-run').title = (widget.code || widget.sampleId) ? 'تشغيل المثال' : 'لا يوجد مثال تشغيل مدمج لهذا العنصر حالياً';
+    $('#detail-run').disabled = !(widget.dartpadPath || widget.sampleId);
+    $('#detail-run').style.opacity = (widget.dartpadPath || widget.sampleId) ? '1' : '.45';
+    $('#detail-run').title = (widget.dartpadPath || widget.sampleId) ? 'تشغيل المثال' : 'لا يتوفر تشغيل مباشر لهذا المثال بعد';
     $('#aside-category').textContent = c.name;
     $('#aside-type').textContent = widget.type;
     $('#aside-runnable').textContent = sampleText(widget);
@@ -450,7 +455,7 @@ window.WIDGETS = knownWidgets.map((item, index) => {
   }
 
   function openRunner(widget = state.selected) {
-    if (!widget || !(widget.code || widget.sampleId)) return;
+    if (!widget || !(widget.dartpadPath || widget.sampleId)) return;
     state.selected = widget;
     state.currentCode = widget.code || '';
     state.runnerOfficialDefault = widget.sampleId ? `// Flutter official sample: ${widget.sampleId}\n// Press Run to load the official editable DartPad example.\n` : '';
@@ -478,10 +483,17 @@ window.WIDGETS = knownWidgets.map((item, index) => {
     state.currentCode = code;
     const holder = $('#dartpad-frame-wrap');
     holder.innerHTML = '';
-    if (state.selected?.sampleId) {
+    if (state.selected?.dartpadPath || state.selected?.sampleId) {
       const url = new URL('https://dartpad.dev/embed-flutter.html');
-      url.searchParams.set('sample_id', state.selected.sampleId);
-      url.searchParams.set('sample_channel', 'stable');
+      if (state.selected.dartpadPath) {
+        url.searchParams.set('gh_owner', DARTPAD_REPO.owner);
+        url.searchParams.set('gh_repo', DARTPAD_REPO.repo);
+        url.searchParams.set('gh_path', state.selected.dartpadPath);
+        url.searchParams.set('gh_ref', DARTPAD_REPO.ref);
+      } else {
+        url.searchParams.set('sample_id', state.selected.sampleId);
+        url.searchParams.set('sample_channel', 'stable');
+      }
       url.searchParams.set('theme', 'dark');
       url.searchParams.set('run', 'true');
       url.searchParams.set('split', '45');
@@ -529,7 +541,7 @@ window.WIDGETS = knownWidgets.map((item, index) => {
       const fallbackSamples = {Card:'material.Card.1', ElevatedButton:'material.ElevatedButton.1', FloatingActionButton:'material.FloatingActionButton.1', Checkbox:'material.Checkbox.1', TextField:'material.TextField.1', AppBar:'material.AppBar.1', AnimatedContainer:'widgets.AnimatedContainer.1', GestureDetector:'widgets.GestureDetector.1', FutureBuilder:'widgets.FutureBuilder.1', StreamBuilder:'widgets.StreamBuilder.1', CupertinoSwitch:'cupertino.CupertinoSwitch.1', CupertinoListTile:'cupertino.CupertinoListTile.1', BottomNavigationBar:'material.BottomNavigationBar.3', SliverAppBar:'material.SliverAppBar.3'};
       for (const [name, sampleId] of Object.entries(fallbackSamples)) {
         const widget = widgets.find(w => w.name === name);
-        if (widget && !widget.code && !widget.sampleId) widget.sampleId = sampleId;
+        if (widget && !widget.sampleId) widget.sampleId = sampleId;
       }
       // Refresh selected details after dynamic examples are discovered.
       if (state.selected) updateRunnerAvailability(state.selected);
@@ -541,11 +553,11 @@ window.WIDGETS = knownWidgets.map((item, index) => {
   }
 
   function updateRunnerAvailability(widget) {
-    const hasSample = !!(widget.code || widget.sampleId);
+    const hasSample = !!(widget.dartpadPath || widget.sampleId);
     $('#detail-run').disabled = !hasSample;
     $('#detail-run').style.opacity = hasSample ? '1' : '.45';
     $('#detail-run').title = hasSample ? 'تشغيل المثال' : 'لا يوجد مثال تشغيل متاح لهذا العنصر حالياً';
-    $('#aside-runnable').textContent = widget.code ? 'مثال مدمج' : widget.sampleId ? 'مثال Flutter الرسمي' : 'مرجع API';
+    $('#aside-runnable').textContent = widget.dartpadPath ? 'مثال تفاعلي قابل للتشغيل' : widget.sampleId ? 'مثال Flutter الرسمي' : 'مرجع API';
     if (!widget.code && widget.sampleId) $('#detail-code').textContent = `// Official Flutter API sample: ${widget.sampleId}\n// Run it in the interactive playground to open the official sample.\n`;
   }
 
