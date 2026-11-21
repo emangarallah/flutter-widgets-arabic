@@ -456,8 +456,10 @@ window.WIDGETS = knownWidgets.map((item, index) => {
     state.runnerOfficialDefault = widget.sampleId ? `// Flutter official sample: ${widget.sampleId}\n// Press Run to load the official editable DartPad example.\n` : '';
     $('#runner-code').value = widget.code || state.runnerOfficialDefault;
     $('#runner-widget-name').textContent = widget.name;
-    $('#dartpad-frame-wrap').innerHTML = `<div class="runner-placeholder"><div class="runner-spinner">▶</div><h3>الكود جاهز للتشغيل</h3><p>اضغط زر التشغيل لفتح بيئة DartPad التفاعلية.</p><button class="secondary-btn" id="load-sample">تحميل المثال وتشغيله</button></div>`;
+    $('#dartpad-frame-wrap').innerHTML = `<div class="runner-placeholder"><div class="runner-spinner">▶</div><h3>جارٍ تجهيز المثال...</h3><p>يتم الآن فتح محرر Flutter وتحميل المثال تلقائياً.</p></div>`;
     changeView('runner');
+    // Start the example immediately; the user can still edit the code and run it again.
+    runCode();
   }
 
   function makeDartPadFrame(code) {
