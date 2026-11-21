@@ -4,10 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#111827" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <meta property="og:title" content="FlutterLab — تعلّم Flutter بالعربي" />
-  <meta property="og:description" content="مرجع عربي تفاعلي لشرح Flutter Widgets مع أمثلة Dart ومساحة تجربة." />
-  <meta property="og:type" content="website" />
   <meta name="description" content="مرجع عربي تفاعلي لتعلّم Flutter Widgets مع أمثلة Dart قابلة للتشغيل داخل المتصفح." />
   <title>Flutter Widgets بالعربي — تعلّم وجرّب</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,27 +14,570 @@
 <body>
   <div class="app-shell">
     <header class="topbar">
-      <a class="brand" href="#home" aria-label="Flutter Widgets بالعربي"><span class="brand-mark"><span></span><span></span><span></span></span><span class="brand-copy"><strong>Flutter<span>Lab</span></strong><small>مرجع Widgets بالعربي</small></span></a>
+      <a class="brand" href="#home" aria-label="Flutter Widgets بالعربي">
+        <span class="brand-mark"><span></span><span></span><span></span></span>
+        <span class="brand-copy"><strong>Flutter<span>Lab</span></strong><small>مرجع Widgets بالعربي</small></span>
+      </a>
       <nav class="top-links" aria-label="التنقل الرئيسي">
         <button class="top-link active" data-view="catalog">المكتبة</button>
         <button class="top-link" data-view="runner">مساحة التشغيل</button>
         <a class="top-link" href="https://docs.flutter.dev/reference/widgets" target="_blank" rel="noreferrer">توثيق Flutter <span>↗</span></a>
       </nav>
-      <div class="top-actions"><button class="icon-btn" id="theme-toggle" aria-label="تبديل المظهر" title="تبديل المظهر">◐</button><a class="github-link" href="https://github.com/flutter/flutter" target="_blank" rel="noreferrer"><span>GitHub</span><b>↗</b></a></div>
+      <div class="top-actions">
+        <button class="icon-btn" id="theme-toggle" aria-label="تبديل المظهر" title="تبديل المظهر">◐</button>
+        <a class="github-link" href="https://github.com/flutter/flutter" target="_blank" rel="noreferrer"><span>GitHub</span><b>↗</b></a>
+      </div>
     </header>
+
     <main id="app-main">
       <section id="catalog-view" class="view active">
         <section class="hero">
-          <div class="hero-copy"><div class="eyebrow"><span class="pulse"></span> تعلّم Flutter خطوة بخطوة</div><h1>كل Widget لها<br><em>حكاية وتجربة.</em></h1><p>افهم مكوّنات Flutter بالعربي، شاهد مثال Dart حقيقي، وعدّل الكود وشغّله مباشرة من المتصفح.</p><div class="hero-cta"><button class="primary-btn" id="explore-btn">ابدأ الاستكشاف <span>←</span></button><a class="text-btn" href="https://docs.flutter.dev/ui/widgets" target="_blank" rel="noreferrer">دليل Widgets الرسمي ↗</a></div><div class="hero-meta"><span><i class="meta-dot green"></i> أمثلة قابلة للتشغيل</span><span><i class="meta-dot purple"></i> شرح عربي</span><span><i class="meta-dot blue"></i> كود إنجليزي</span></div></div>
-          <div class="hero-visual" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="code-window"><div class="window-head"><div class="window-dots"><i></i><i></i><i></i></div><span>main.dart</span><span class="live-label">LIVE EXAMPLE</span></div><div class="code-lines"><div><b>1</b><code><i>Scaffold</i>(</code></div><div><b>2</b><code>  <i>body</i>: <i>Center</i>(</code></div><div><b>3</b><code>    <i>child</i>: <i>Text</i>(</code></div><div><b>4</b><code>      <u>'Hello Flutter!'</u>,</code></div><div><b>5</b><code>      <i>style</i>: <i>TextStyle</i>(</code></div><div><b>6</b><code>        <s>fontSize</s>: <em>24</em>,</code></div><div><b>7</b><code>      ),</code></div><div><b>8</b><code>    ),</code></div><div><b>9</b><code>  ),</code></div><div><b>10</b><code>);</code></div></div><div class="window-foot"><span><i></i> Dart</span><span>Flutter SDK</span><span class="run-mark">▶ Run</span></div></div><div class="float-chip chip-widget"><span>▦</span><div><b>220+</b><small>Widgets مرجعية</small></div></div><div class="float-chip chip-run"><span>▶</span><div><b>Run</b><small>جرّب بنفسك</small></div></div></div>
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="pulse"></span> تعلّم Flutter خطوة بخطوة</div>
+            <h1>كل Widget لها<br><em>حكاية وتجربة.</em></h1>
+            <p>افهم مكوّنات Flutter بالعربي، شاهد مثال Dart حقيقي، وعدّل الكود وشغّله مباشرة من المتصفح.</p>
+            <div class="hero-cta">
+              <button class="primary-btn" id="explore-btn">ابدأ الاستكشاف <span>←</span></button>
+              <a class="text-btn" href="https://docs.flutter.dev/ui/widgets" target="_blank" rel="noreferrer">دليل Widgets الرسمي ↗</a>
+            </div>
+            <div class="hero-meta"><span><i class="meta-dot green"></i> أمثلة قابلة للتشغيل</span><span><i class="meta-dot purple"></i> شرح عربي</span><span><i class="meta-dot blue"></i> كود إنجليزي</span></div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="code-window">
+              <div class="window-head"><div class="window-dots"><i></i><i></i><i></i></div><span>main.dart</span><span class="live-label">LIVE EXAMPLE</span></div>
+              <div class="code-lines">
+                <div><b>1</b><code><i>Scaffold</i>(</code></div>
+                <div><b>2</b><code>  <i>body</i>: <i>Center</i>(</code></div>
+                <div><b>3</b><code>    <i>child</i>: <i>Text</i>(</code></div>
+                <div><b>4</b><code>      <u>'Hello Flutter!'</u>,</code></div>
+                <div><b>5</b><code>      <i>style</i>: <i>TextStyle</i>(</code></div>
+                <div><b>6</b><code>        <s>fontSize</s>: <em>24</em>,</code></div>
+                <div><b>7</b><code>      ),</code></div>
+                <div><b>8</b><code>    ),</code></div>
+                <div><b>9</b><code>  ),</code></div>
+                <div><b>10</b><code>);</code></div>
+              </div>
+              <div class="window-foot"><span><i></i> Dart</span><span>Flutter SDK</span><span class="run-mark">▶ Run</span></div>
+            </div>
+            <div class="float-chip chip-widget"><span>▦</span><div><b>220+</b><small>Widgets مرجعية</small></div></div>
+            <div class="float-chip chip-run"><span>▶</span><div><b>Run</b><small>جرّب بنفسك</small></div></div>
+          </div>
         </section>
-        <section class="stats-row" aria-label="إحصائيات المكتبة"><div class="stat-card"><span class="stat-icon violet">▦</span><div><strong id="total-widgets">—</strong><small>عنصر في الفهرس</small></div></div><div class="stat-card"><span class="stat-icon teal">⌘</span><div><strong id="sample-count">—</strong><small>مثال تفاعلي مدمج</small></div></div><div class="stat-card"><span class="stat-icon orange">◷</span><div><strong id="category-count">—</strong><small>تصنيف تعليمي</small></div></div><div class="stat-card"><span class="stat-icon blue">♡</span><div><strong id="saved-count">0</strong><small>في مفضلتك</small></div></div></section>
-        <section class="library-section" id="library"><div class="section-heading"><div><div class="eyebrow muted">WIDGET LIBRARY</div><h2>استكشف المكتبة</h2><p>ابحث باسم الـ Widget أو اختر التصنيف المناسب لك.</p></div><div class="catalog-tools"><label class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="ابحث عن Widget… مثل Container" autocomplete="off"><kbd>⌘ K</kbd></label><button class="filter-btn" id="favorites-filter">♡ المفضلة <b id="fav-filter-count">0</b></button></div></div><div class="category-strip" id="category-strip"></div><div class="results-meta"><span id="result-count">كل العناصر</span><span>مرتبة حسب التصنيف</span></div><div class="widget-grid" id="widget-grid"></div><div class="empty-state hidden" id="empty-state"><span>⌕</span><h3>لم نعثر على نتائج</h3><p>جرّب كلمة أخرى أو غيّر التصنيف.</p><button class="text-btn" id="clear-filters">مسح البحث والتصفية</button></div></section>
+
+        <section class="stats-row" aria-label="إحصائيات المكتبة">
+          <div class="stat-card"><span class="stat-icon violet">▦</span><div><strong id="total-widgets">—</strong><small>عنصر في الفهرس</small></div></div>
+          <div class="stat-card"><span class="stat-icon teal">⌘</span><div><strong id="sample-count">—</strong><small>مثال تفاعلي مدمج</small></div></div>
+          <div class="stat-card"><span class="stat-icon orange">◷</span><div><strong id="category-count">—</strong><small>تصنيف تعليمي</small></div></div>
+          <div class="stat-card"><span class="stat-icon blue">♡</span><div><strong id="saved-count">0</strong><small>في مفضلتك</small></div></div>
+        </section>
+
+        <section class="library-section" id="library">
+          <div class="section-heading">
+            <div><div class="eyebrow muted">WIDGET LIBRARY</div><h2>استكشف المكتبة</h2><p>ابحث باسم الـ Widget أو اختر التصنيف المناسب لك.</p></div>
+            <div class="catalog-tools">
+              <label class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="ابحث عن Widget… مثل Container" autocomplete="off"><kbd>⌘ K</kbd></label>
+              <button class="filter-btn" id="favorites-filter">♡ المفضلة <b id="fav-filter-count">0</b></button>
+            </div>
+          </div>
+          <div class="category-strip" id="category-strip"></div>
+          <div class="results-meta"><span id="result-count">كل العناصر</span><span>مرتبة حسب التصنيف</span></div>
+          <div class="widget-grid" id="widget-grid"></div>
+          <div class="empty-state hidden" id="empty-state"><span>⌕</span><h3>لم نعثر على نتائج</h3><p>جرّب كلمة أخرى أو غيّر التصنيف.</p><button class="text-btn" id="clear-filters">مسح البحث والتصفية</button></div>
+        </section>
         <footer class="site-footer"><div class="brand mini"><span class="brand-mark"><span></span><span></span><span></span></span><span class="brand-copy"><strong>Flutter<span>Lab</span></strong></span></div><span>مصدر مرجعي تعليمي — راجع وثائق Flutter للتفاصيل الدقيقة حسب إصدار SDK.</span><a href="https://docs.flutter.dev/reference/widgets" target="_blank" rel="noreferrer">Flutter Widget Index ↗</a></footer>
       </section>
-      <section id="detail-view" class="view detail-view"><div class="detail-toolbar"><button class="back-btn" id="back-to-catalog">→ المكتبة</button><div class="breadcrumbs">المكتبة <span>/</span> <b id="detail-category">التنسيق</b></div><button class="icon-btn" id="detail-favorite" aria-label="إضافة للمفضلة">♡</button></div><div class="detail-layout"><article class="detail-main"><div class="detail-kicker" id="detail-kicker">LAYOUT WIDGET</div><div class="detail-title-row"><div><h1 id="detail-name">Container</h1><p id="detail-summary">وصف العنصر</p></div><span class="type-pill" id="detail-type">Widget</span></div><div class="detail-actions"><button class="primary-btn" id="detail-run">▶ جرّب المثال</button><button class="secondary-btn" id="detail-copy">⧉ نسخ الكود</button><a class="secondary-btn" id="detail-docs" href="#" target="_blank" rel="noreferrer">مرجع API ↗</a></div><section class="content-block"><div class="block-heading"><span class="block-number">01</span><div><h3>ما وظيفة هذا الـ Widget؟</h3><small>الفكرة ببساطة</small></div></div><p id="detail-explanation"></p></section><section class="content-block"><div class="block-heading"><span class="block-number">02</span><div><h3>متى أستخدمه؟</h3><small>سيناريو عملي</small></div></div><div class="use-case" id="detail-use"></div></section><section class="content-block"><div class="block-heading"><span class="block-number">03</span><div><h3>مثال Dart</h3><small>يمكنك نسخه أو تشغيله</small></div></div><div class="code-panel"><div class="code-panel-head"><span><i></i> main.dart</span><button id="code-copy">نسخ الكود ⧉</button></div><pre><code id="detail-code"></code></pre><div class="code-panel-foot"><span>لغة الكود: Dart</span><span>Flutter SDK</span></div></div></section><div class="detail-tip" id="detail-tip"><b>نصيحة:</b> <span></span></div><section class="content-block related-block"><div class="block-heading"><span class="block-number">04</span><div><h3>Widgets مرتبطة</h3><small>وسّع فهمك</small></div></div><div class="related-list" id="related-list"></div></section></article><aside class="detail-aside"><div class="preview-card"><div class="aside-head"><span>LIVE PREVIEW</span><i>●</i></div><div class="mini-device" id="widget-preview"><div class="preview-top"></div><div class="preview-body"><div class="preview-placeholder"></div><div class="preview-lines"><i></i><i></i><i></i></div></div></div><div class="preview-caption"><b>تصور تقريبي</b><span>التنفيذ الحقيقي داخل DartPad</span></div></div><div class="aside-info"><h4>معلومات سريعة</h4><div class="info-row"><span>التصنيف</span><b id="aside-category">—</b></div><div class="info-row"><span>النوع</span><b id="aside-type">Widget</b></div><div class="info-row"><span>مثال تشغيل</span><b id="aside-runnable">—</b></div></div><div class="aside-note"><span>✦</span><div><b>تعلّم بالتجربة</b><p>غيّر القيم في الكود ثم اضغط Run داخل محرر DartPad لمشاهدة النتيجة.</p></div></div></aside></div></section>
-      <section id="runner-view" class="view runner-view"><div class="runner-top"><button class="back-btn" id="runner-back">→ العودة للشرح</button><div><span class="runner-label">INTERACTIVE PLAYGROUND</span><h1>مساحة التشغيل</h1><p>عدّل كود Dart وشغّله في بيئة Flutter داخل المتصفح.</p></div><span class="online-status"><i></i> DartPad</span></div><div class="runner-workspace"><div class="runner-editor"><div class="editor-head"><div><span class="file-icon">D</span><b>main.dart</b><small>محرر المثال</small></div><button class="reset-btn" id="reset-code">↺ إعادة ضبط</button></div><textarea id="runner-code" spellcheck="false" aria-label="محرر كود Dart" dir="ltr"></textarea><div class="editor-foot"><span><i></i> Dart / Flutter</span><span id="runner-widget-name">Container</span></div><button class="primary-btn run-code-btn" id="run-code">▶ تشغيل الكود</button></div><div class="runner-output"><div class="output-head"><div><span class="output-icon">▣</span><b>نتيجة التشغيل</b><small>Flutter Web</small></div><span class="output-live"><i></i> READY</span></div><div class="dartpad-frame-wrap" id="dartpad-frame-wrap"><div class="runner-placeholder"><div class="runner-spinner">▶</div><h3>جاهز للتجربة</h3><p>اضغط «تشغيل الكود» لفتح محرر Flutter وتشغيل المثال.</p><button class="secondary-btn" id="load-sample">تحميل المثال وتشغيله</button></div></div><div class="output-foot"><span>يتم تنفيذ الكود عبر DartPad</span><a href="https://dartpad.dev" target="_blank" rel="noreferrer">فتح DartPad ↗</a></div></div></div><div class="runner-disclaimer"><span>ⓘ</span> تحتاج مساحة التشغيل إلى اتصال بالإنترنت للوصول إلى DartPad. قد لا تعمل بعض الأمثلة التي تعتمد على حزم خارجية غير مدعومة في DartPad.</div></section>
+
+      <section id="detail-view" class="view detail-view">
+        <div class="detail-toolbar"><button class="back-btn" id="back-to-catalog">→ المكتبة</button><div class="breadcrumbs">المكتبة <span>/</span> <b id="detail-category">التنسيق</b></div><button class="icon-btn" id="detail-favorite" aria-label="إضافة للمفضلة">♡</button></div>
+        <div class="detail-layout">
+          <article class="detail-main">
+            <div class="detail-kicker" id="detail-kicker">LAYOUT WIDGET</div>
+            <div class="detail-title-row"><div><h1 id="detail-name">Container</h1><p id="detail-summary">وصف العنصر</p></div><span class="type-pill" id="detail-type">Widget</span></div>
+            <div class="detail-actions"><button class="primary-btn" id="detail-run">▶ جرّب المثال</button><button class="secondary-btn" id="detail-copy">⧉ نسخ الكود</button><a class="secondary-btn" id="detail-docs" href="#" target="_blank" rel="noreferrer">مرجع API ↗</a></div>
+            <section class="content-block"><div class="block-heading"><span class="block-number">01</span><div><h3>ما وظيفة هذا الـ Widget؟</h3><small>الفكرة ببساطة</small></div></div><p id="detail-explanation"></p></section>
+            <section class="content-block"><div class="block-heading"><span class="block-number">02</span><div><h3>متى أستخدمه؟</h3><small>سيناريو عملي</small></div></div><div class="use-case" id="detail-use"></div></section>
+            <section class="content-block"><div class="block-heading"><span class="block-number">03</span><div><h3>مثال Dart</h3><small>يمكنك نسخه أو تشغيله</small></div></div><div class="code-panel"><div class="code-panel-head"><span><i></i> main.dart</span><button id="code-copy">نسخ الكود ⧉</button></div><pre><code id="detail-code"></code></pre><div class="code-panel-foot"><span>لغة الكود: Dart</span><span>Flutter SDK</span></div></div></section>
+            <div class="detail-tip" id="detail-tip"><b>نصيحة:</b> <span></span></div>
+            <section class="content-block related-block"><div class="block-heading"><span class="block-number">04</span><div><h3>Widgets مرتبطة</h3><small>وسّع فهمك</small></div></div><div class="related-list" id="related-list"></div></section>
+          </article>
+          <aside class="detail-aside">
+            <div class="preview-card"><div class="aside-head"><span>LIVE PREVIEW</span><i>●</i></div><div class="mini-device" id="widget-preview"><div class="preview-top"></div><div class="preview-body"><div class="preview-placeholder"></div><div class="preview-lines"><i></i><i></i><i></i></div></div></div><div class="preview-caption"><b>تصور تقريبي</b><span>التنفيذ الحقيقي داخل DartPad</span></div></div>
+            <div class="aside-info"><h4>معلومات سريعة</h4><div class="info-row"><span>التصنيف</span><b id="aside-category">—</b></div><div class="info-row"><span>النوع</span><b id="aside-type">Widget</b></div><div class="info-row"><span>مثال تشغيل</span><b id="aside-runnable">—</b></div></div>
+            <div class="aside-note"><span>✦</span><div><b>تعلّم بالتجربة</b><p>غيّر القيم في الكود ثم اضغط Run داخل محرر DartPad لمشاهدة النتيجة.</p></div></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="runner-view" class="view runner-view">
+        <div class="runner-top"><button class="back-btn" id="runner-back">→ العودة للشرح</button><div><span class="runner-label">INTERACTIVE PLAYGROUND</span><h1>مساحة التشغيل</h1><p>عدّل كود Dart وشغّله في بيئة Flutter داخل المتصفح.</p></div><span class="online-status"><i></i> DartPad</span></div>
+        <div class="runner-workspace">
+          <div class="runner-editor">
+            <div class="editor-head"><div><span class="file-icon">D</span><b>main.dart</b><small>محرر المثال</small></div><button class="reset-btn" id="reset-code">↺ إعادة ضبط</button></div>
+            <textarea id="runner-code" spellcheck="false" aria-label="محرر كود Dart" dir="ltr"></textarea>
+            <div class="editor-foot"><span><i></i> Dart / Flutter</span><span id="runner-widget-name">Container</span></div>
+            <button class="primary-btn run-code-btn" id="run-code">▶ تشغيل الكود</button>
+          </div>
+          <div class="runner-output">
+            <div class="output-head"><div><span class="output-icon">▣</span><b>نتيجة التشغيل</b><small>Flutter Web</small></div><span class="output-live"><i></i> READY</span></div>
+            <div class="dartpad-frame-wrap" id="dartpad-frame-wrap"><div class="runner-placeholder"><div class="runner-spinner">▶</div><h3>جاهز للتجربة</h3><p>اضغط «تشغيل الكود» لفتح محرر Flutter وتشغيل المثال.</p><button class="secondary-btn" id="load-sample">تحميل المثال وتشغيله</button></div></div>
+            <div class="output-foot"><span>يتم تنفيذ الكود عبر DartPad</span><a href="https://dartpad.dev" target="_blank" rel="noreferrer">فتح DartPad ↗</a></div>
+          </div>
+        </div>
+        <div class="runner-disclaimer"><span>ⓘ</span> تحتاج مساحة التشغيل إلى اتصال بالإنترنت للوصول إلى DartPad. قد لا تعمل بعض الأمثلة التي تعتمد على حزم خارجية غير مدعومة في DartPad.</div>
+      </section>
     </main>
   </div>
-  <script src="widgets.js"></script><script src="app.js"></script>
-</body></html>
+  <script>
+// Flutter SDK widget reference. Core examples are authored for DartPad; additional samples
+// are discovered from Flutter's official API snippet index at runtime when available.
+window.WIDGET_CATEGORIES = [
+  {id:'all', name:'كل العناصر', icon:'▦'},
+  {id:'basics', name:'أساسيات الواجهة', icon:'◫'},
+  {id:'layout', name:'التنسيق والأحجام', icon:'⊞'},
+  {id:'material', name:'Material Design', icon:'◈'},
+  {id:'inputs', name:'الإدخال والنماذج', icon:'⌨'},
+  {id:'scroll', name:'التمرير والقوائم', icon:'☷'},
+  {id:'animation', name:'الحركة والانتقالات', icon:'✧'},
+  {id:'interaction', name:'التفاعل والإيماءات', icon:'☝'},
+  {id:'async', name:'البيانات غير المتزامنة', icon:'◷'},
+  {id:'cupertino', name:'تصميم iOS - Cupertino', icon:''},
+  {id:'effects', name:'التأثيرات والرسم', icon:'◌'},
+  {id:'accessibility', name:'إمكانية الوصول', icon:'◎'},
+  {id:'reference', name:'عناصر مساعدة وAPI', icon:'⌘'}
+];
+
+const widgetGroups = {
+  basics: `MaterialApp WidgetsApp Scaffold SafeArea Text RichText DefaultTextStyle Icon Image RawImage FlutterLogo Placeholder SizedBox Container Card AppBar`,
+  layout: `Align AspectRatio Baseline Center ConstrainedBox CustomMultiChildLayout CustomSingleChildLayout Expanded FittedBox FractionalTranslation FractionallySizedBox IntrinsicHeight IntrinsicWidth LayoutBuilder LimitedBox ListBody OverflowBar OverflowBox Padding Row Column Flexible SizedOverflowBox Stack Positioned Wrap SizedBox`,
+  material: `AlertDialog BottomAppBar BottomSheet BottomNavigationBar Card CarouselView Chip Badge CircularProgressIndicator DataTable Drawer ElevatedButton FloatingActionButton IconButton LinearProgressIndicator ListTile NavigationRail NavigationBar NavigationDrawer OutlinedButton PopupMenuButton Scaffold SnackBar SegmentedButton SimpleDialog Slider Switch TabBar TabBarView TextButton Tooltip Stepper`,
+  inputs: `Autocomplete Checkbox DatePicker DropdownButton Form FormField Radio Slider Switch TextField TextFormField CupertinoDatePicker CupertinoSlider CupertinoSwitch CupertinoTextField`,
+  scroll: `CustomScrollView DraggableScrollableSheet GridView ListView NestedScrollView PageView RefreshIndicator ReorderableListView Scrollbar Scrollable SingleChildScrollView SliverAppBar SliverChildBuilderDelegate SliverChildListDelegate SliverFillRemaining SliverFixedExtentList SliverGrid SliverList SliverPadding SliverPersistentHeader SliverToBoxAdapter`,
+  animation: `AlignTransition AnimatedAlign AnimatedBuilder AnimatedContainer AnimatedCrossFade AnimatedDefaultTextStyle AnimatedList AnimatedModalBarrier AnimatedOpacity AnimatedPhysicalModel AnimatedPositioned AnimatedScale AnimatedSize AnimatedWidget DecoratedBoxTransition DefaultTextStyleTransition FadeTransition FadeInImage FadeTransition Hero ImplicitlyAnimatedWidget MatrixTransition PositionedTransition RepeatingAnimationBuilder RotationTransition ScaleTransition SizeTransition SlideTransition SliverFadeTransition`,
+  interaction: `AbsorbPointer Dismissible DragTarget Draggable DraggableScrollableSheet GestureDetector IgnorePointer InkWell InteractiveViewer KeyboardListener LongPressDraggable NotificationListener PopupMenuButton RefreshIndicator Semantics`,
+  async: `FutureBuilder StreamBuilder`,
+  cupertino: `CupertinoActionSheet CupertinoActionSheetAction CupertinoActivityIndicator CupertinoAdaptiveTextSelectionToolbar CupertinoAlertDialog CupertinoApp CupertinoButton CupertinoCheckbox CupertinoColors CupertinoContextMenu CupertinoContextMenuAction CupertinoDatePicker CupertinoDesktopTextSelectionControls CupertinoDesktopTextSelectionToolbar CupertinoDesktopTextSelectionToolbarButton CupertinoDialogAction CupertinoDynamicColor CupertinoFormRow CupertinoFormSection CupertinoFullscreenDialogTransition CupertinoListSection CupertinoListTile CupertinoLocalizations CupertinoMagnifier CupertinoModalPopupRoute CupertinoNavigationBar CupertinoNavigationBarBackButton CupertinoPage CupertinoPageRoute CupertinoPageScaffold CupertinoPicker CupertinoPopupSurface CupertinoRadio CupertinoScrollbar CupertinoSearchTextField CupertinoSlider CupertinoSlidingSegmentedControl CupertinoSliverNavigationBar CupertinoSliverRefreshControl CupertinoSwitch CupertinoSpellCheckSuggestionsToolbar CupertinoTabBar CupertinoTabController CupertinoTabScaffold CupertinoTabView CupertinoTextField CupertinoTextFormFieldRow CupertinoTextMagnifier CupertinoTextSelectionControls CupertinoTextSelectionToolbar CupertinoTextSelectionToolbarButton CupertinoTextThemeData CupertinoTheme CupertinoThemeData CupertinoThumbPainter CupertinoTimerPicker`,
+  effects: `BackdropFilter ClipOval ClipPath ClipRect ClipRRect CustomPaint DecoratedBox Opacity RotatedBox Transform`,
+  accessibility: `ExcludeSemantics MergeSemantics Semantics`,
+  reference: `AssetBundle AnimatedListState CupertinoAdaptiveTextSelectionToolbar CupertinoColors CupertinoDesktopTextSelectionControls CupertinoDesktopTextSelectionToolbar CupertinoDesktopTextSelectionToolbarButton CupertinoDynamicColor CupertinoFullscreenDialogTransition CupertinoLocalizations CupertinoMagnifier CupertinoModalPopupRoute CupertinoScrollBehavior CupertinoSpellCheckSuggestionsToolbar CupertinoTextMagnifier CupertinoTextSelectionControls CupertinoTextSelectionToolbar CupertinoTextSelectionToolbarButton CupertinoTextThemeData CupertinoThemeData CupertinoThumbPainter CustomPaint DatePicker Menu MediaQuery Navigator Offstage ScrollConfiguration Table TabController TabPageSelector TimePicker`,
+};
+
+const definitions = {
+  Text:['عرض نص ثابت أو ديناميكي داخل الواجهة. يدعم تغيير الحجم واللون والوزن والمحاذاة وعدد الأسطر.','استخدمه للعناوين والوصف والأزرار النصية وأي معلومة يريد المستخدم قراءتها.','اجعل النصوص الطويلة محدودة الأسطر عند الحاجة، واستخدم Text.rich عندما تحتاج تنسيقات مختلفة داخل النص الواحد.'],
+  Container:['صندوق مرن يجمع بين الحجم والحشو والخلفية والحدود والزوايا والهوامش والمحاذاة.','استخدمه لبناء بطاقات بسيطة أو تلوين مساحة أو ضبط أبعاد عنصر.','لا تضع Container حول كل عنصر دون حاجة؛ استخدم Padding أو SizedBox عندما تحتاج وظيفة واحدة فقط.'],
+  Row:['يرتب عناصره الأبنـاء أفقياً في صف واحد.','استخدمه لعرض صورة بجانب عنوان، أو أزرار بجانب بعضها، أو صف معلومات.','استخدم Expanded أو Flexible عندما تحتاج توزيع المساحة المتاحة بين الأبناء.'],
+  Column:['يرتب عناصره الأبناء رأسياً من الأعلى إلى الأسفل.','استخدمه لبناء الشاشات والنماذج ومجموعات النصوص والبطاقات.','انتبه إلى overflow داخل المساحات المحدودة؛ لفّ المحتوى بـ SingleChildScrollView عند الحاجة.'],
+  Center:['يضع العنصر الابن في منتصف المساحة المتاحة أفقياً ورأسياً.','استخدمه لتوسيط شعار أو رسالة فارغة أو مؤشر تحميل.','Center لا يفرض حجماً ثابتاً على الابن؛ استخدم SizedBox لتحديد الأبعاد.'],
+  Padding:['يضيف مسافة داخلية حول العنصر الابن من الجهات التي تحددها.','استخدمه لإبعاد النصوص والحقول والأزرار عن حواف الشاشة أو البطاقة.','Padding لا يرسم خلفية أو حدوداً؛ اجمعه مع Container عند الحاجة.'],
+  SizedBox:['ينشئ مساحة فارغة أو يفرض عرضاً وارتفاعاً محددين على الابن.','استخدمه لإضافة فراغ بين العناصر أو لضبط مقاس زر أو صورة.','للمساحات الفارغة استخدم const SizedBox عندما تكون القيم ثابتة.'],
+  Expanded:['يجعل الابن يشغل المساحة المتبقية على المحور الرئيسي داخل Row أو Column أو Flex.','استخدمه لتقسيم المساحة بين عناصر الصف أو لجعل قائمة تملأ بقية الشاشة.','لا تضع Expanded خارج Flex مثل Row أو Column؛ فهذا يسبب خطأ ParentDataWidget.'],
+  Flexible:['يسمح للابن باستخدام جزء من المساحة المتاحة دون إجباره دائماً على ملئها بالكامل.','استخدمه عندما تريد منع النص أو العنصر من تجاوز مساحة الصف مع السماح له بأن يكون أصغر.','الفرق الأساسي أن Expanded يفرض ملء المساحة، بينما Flexible أكثر مرونة.'],
+  Stack:['يرسم العناصر فوق بعضها باستخدام ترتيب الطبقات.','استخدمه لوضع نص فوق صورة أو شارة فوق أيقونة أو زر عائم فوق بطاقة.','العنصر الأخير في children يظهر فوق العناصر السابقة. استخدم Positioned لتحديد مكانه.'],
+  Positioned:['يحدد موضع ابن داخل Stack باستخدام قيم مثل top وleft وright وbottom.','استخدمه لوضع زر إغلاق في زاوية بطاقة أو شارة رقمية فوق أيقونة.','لا يعمل Positioned إلا كابن مباشر لـ Stack.'],
+  Wrap:['يرتب العناصر أفقياً أو رأسياً، وينقل العنصر إلى سطر جديد عندما لا تكفي المساحة.','استخدمه لعرض الوسوم والفلاتر والمهارات التي يختلف عددها حسب المحتوى.','استخدم spacing للمسافة الأفقية وrunSpacing للمسافة بين الأسطر.'],
+  Scaffold:['يوفر الهيكل الأساسي لشاشة Material، مثل AppBar وDrawer وbody وBottomNavigationBar وFloatingActionButton.','استخدمه كنقطة بناء لمعظم شاشات تطبيقات Material Design.','استخدم Scaffold واحداً لكل صفحة رئيسية غالباً، واستعمل ScaffoldMessenger لرسائل SnackBar.'],
+  AppBar:['شريط علوي يعرض عنوان الصفحة وأزرار الإجراءات والتنقل.','استخدمه في أعلى Scaffold لعرض عنوان الشاشة وأزرار البحث أو الإعدادات.','استفد من leading وactions وbottom وflexibleSpace لتخصيصه.'],
+  Card:['سطح بصري يجمع المعلومات المرتبطة داخل مساحة ذات حواف وظل أو لون.','استخدمه لبطاقات المنتجات والمستخدمين والإحصائيات والمقالات.','ضع المحتوى داخل Padding أو ListTile، واضبط elevation وshape حسب التصميم.'],
+  ElevatedButton:['زر Material ممتلئ وبارز بصرياً، مناسب للإجراء الأساسي في الشاشة.','استخدمه لإرسال نموذج أو حفظ بيانات أو الانتقال إلى خطوة مهمة.','اربط onPressed بالفعل المطلوب، واجعلها null لتعطيل الزر.'],
+  OutlinedButton:['زر بإطار خارجي دون تعبئة قوية للخلفية، مناسب للإجراء الثانوي.','استخدمه بجانب ElevatedButton عندما تعرض إجراءين مختلفين في الأهمية.','يمكنك تعديل شكل الإطار والسماكة عبر style وButtonStyle.'],
+  TextButton:['زر نصي مسطح دون خلفية أو إطار بارز.','استخدمه للإجراءات الثانوية مثل إلغاء أو تخطي أو عرض المزيد.','اترك مساحة ضغط مناسبة، ولا تستخدمه كإجراء رئيسي وحيد في واجهة مزدحمة.'],
+  FloatingActionButton:['زر عائم يبرز الإجراء الأهم في الشاشة، وغالباً يوضع داخل Scaffold.','استخدمه لإضافة عنصر جديد أو بدء إنشاء محتوى.','لا تكثر منه في الشاشة الواحدة؛ اختر إجراءً رئيسياً واحداً واضحاً.'],
+  IconButton:['زر صغير يعرض أيقونة بدلاً من النص لتنفيذ إجراء سريع.','استخدمه للبحث أو الرجوع أو التعديل أو الحذف داخل AppBar أو ListTile.','أضف Tooltip أو semanticLabel لتوضيح معنى الأيقونة لمستخدمي قارئات الشاشة.'],
+  TextField:['حقل إدخال نصي يسمح للمستخدم بكتابة قيمة.','استخدمه في البحث وتسجيل الدخول وإدخال الاسم والبريد والوصف.','استخدم TextEditingController عند الحاجة لقراءة القيمة أو التحكم فيها، وتخلّص منه داخل dispose.'],
+  Checkbox:['مربع اختيار لحالة ثنائية يمكن تشغيلها أو إيقافها.','استخدمه للموافقة على الشروط أو اختيار عدة خيارات.','Checkbox عنصر controlled؛ خزّن قيمته في State وحدّثها داخل onChanged.'],
+  Switch:['مفتاح تبديل مناسب لتشغيل إعداد أو إيقافه مباشرة.','استخدمه لإعدادات مثل الوضع الداكن أو تفعيل الإشعارات.','استخدم SwitchListTile لدمج المفتاح مع عنوان ووصف في صف واحد.'],
+  Slider:['متحكم يسمح باختيار قيمة من نطاق رقمي محدد.','استخدمه لضبط مستوى الصوت أو السطوع أو السعر أو نسبة التكبير.','حدد min وmax وdivisions عند الحاجة، واعرض القيمة الحالية للمستخدم.'],
+  Radio:['اختيار قيمة واحدة فقط من مجموعة خيارات متنافية.','استخدمه لاختيار طريقة الدفع أو نوع الحساب عندما لا يسمح إلا بخيار واحد.','للتصميم الحديث متعدد الخيارات، جرّب SegmentedButton أو RadioListTile.'],
+  DropdownButton:['قائمة منسدلة لاختيار عنصر واحد من مجموعة خيارات.','استخدمها لاختيار المدينة أو الفئة أو العملة عندما تكون الخيارات كثيرة.','اجعل قيمة value تطابق أحد عناصر DropdownMenuItem، ولا تنس تحديث الحالة.'],
+  ListView:['قائمة قابلة للتمرير تعرض عناصر متتابعة رأسياً أو أفقياً.','استخدمها لقوائم المحادثات والمنتجات والإشعارات والمهام.','استخدم ListView.builder للقوائم الطويلة حتى لا تبني جميع العناصر مرة واحدة.'],
+  GridView:['يعرض العناصر داخل شبكة من الصفوف والأعمدة قابلة للتمرير.','استخدمه لمعرض الصور أو شبكة المنتجات أو لوحة اختصارات.','استخدم GridView.builder للمجموعات الكبيرة، واضبط childAspectRatio حسب التصميم.'],
+  ListTile:['صف جاهز يحتوي عادةً على leading وtitle وsubtitle وtrailing.','استخدمه لعناصر الإعدادات والقوائم وجهات الاتصال.','ادمجه مع ListView، واستخدم onTap للتفاعل مع الصف.'],
+  Icon:['يعرض رمزاً من Material Icons أو مجموعة الأيقونات المختارة.','استخدمه لتوضيح وظيفة زر أو تمييز حالة أو إضافة دلالة بصرية.','استخدم const Icon عندما تكون الأيقونة وقيمها ثابتة.'],
+  Image:['يعرض صورة من الأصول المحلية أو الشبكة أو الذاكرة.','استخدمه لصور المنتجات وصور المستخدمين والرسوم التوضيحية.','حدد fit وwidth وheight، وأضف errorBuilder لمعالجة فشل تحميل الصورة.'],
+  CircularProgressIndicator:['مؤشر تحميل دائري يوضح أن عملية ما ما زالت جارية.','استخدمه أثناء تسجيل الدخول أو تحميل بيانات الشاشة.','اجعل value null للحركة المستمرة أو رقماً بين صفر وواحد للتقدم المحدد.'],
+  LinearProgressIndicator:['مؤشر تقدم أفقي يوضح نسبة إنجاز عملية.','استخدمه أثناء رفع ملف أو تنزيل محتوى أو تنفيذ خطوات متتابعة.','اعرض وصفاً نصياً أو نسبة مئوية بجانبه لتحسين وضوح الحالة.'],
+  GestureDetector:['يلتقط إيماءات المستخدم مثل النقر والسحب والضغط المطول دون إضافة شكل مرئي افتراضي.','استخدمه لبناء تفاعلات مخصصة على أي عنصر.','إذا أردت تأثير اللمس المادي Material، استخدم InkWell داخل Material.'],
+  InkWell:['يضيف تفاعلاً مرئياً عند الضغط مثل تأثير الحبر، ويتيح استقبال النقرات.','استخدمه لجعل بطاقة أو صف قائمة قابلاً للنقر بأسلوب Material.','يحتاج غالباً إلى Material ancestor حتى يظهر تأثير الحبر بشكل صحيح.'],
+  AnimatedContainer:['Container يغيّر خصائصه تلقائياً بحركة انتقالية عند تغيّر القيم.','استخدمه لتوسيع بطاقة أو تغيير لونها أو تدوير زواياها عند التفاعل.','غيّر قيمة واحدة أو أكثر داخل setState، وحدد duration وcurve.'],
+  AnimatedOpacity:['يغيّر شفافية العنصر بسلاسة بين القيم من 0 إلى 1.','استخدمه لإظهار أو إخفاء تنبيه أو نص أو صورة بتأثير لطيف.','عند opacity = 0 يبقى العنصر موجوداً في شجرة الواجهة وقد يستقبل التفاعل؛ استخدم IgnorePointer عند الحاجة.'],
+  FutureBuilder:['يبني واجهة مختلفة بناءً على حالة Future، مثل التحميل والنجاح والخطأ.','استخدمه لعرض بيانات تأتي من طلب شبكة أو قاعدة بيانات أو عملية غير متزامنة.','لا تنشئ Future جديداً داخل build؛ جهّزه في initState أو خارج build.'],
+  StreamBuilder:['يستمع إلى Stream ويعيد بناء الواجهة عند وصول بيانات جديدة.','استخدمه لبيانات الوقت الحقيقي مثل المحادثات أو الأسعار أو حالة اتصال.','تعامل مع connectionState وhasError وhasData داخل builder.'],
+  Form:['حاوية تجمع حقول الإدخال وتسمح بالتحقق من صحتها وحفظها وإعادة ضبطها.','استخدمه في شاشة تسجيل الحساب أو إدخال البيانات قبل إرسالها.','أنشئ GlobalKey<FormState> واستخدم validator لكل حقل مهم.'],
+  AlertDialog:['نافذة حوارية تعرض رسالة أو خيارات تتطلب انتباه المستخدم أو قراره.','استخدمه لتأكيد الحذف أو عرض تفاصيل أو سؤال المستخدم قبل المتابعة.','افتحه عبر showDialog وأغلقه بـ Navigator.pop.'],
+  SnackBar:['رسالة مؤقتة تظهر أسفل الشاشة لإبلاغ المستخدم بنتيجة إجراء.','استخدمه لتأكيد الحفظ أو التنبيه إلى تعذر تنفيذ أمر.','اعرضه باستخدام ScaffoldMessenger.of(context).showSnackBar.'],
+  Drawer:['لوحة تنقل جانبية تظهر من حافة الشاشة داخل Scaffold.','استخدمه للوصول إلى الصفحات الرئيسية والإعدادات والملف الشخصي.','ضع عناصر التنقل داخل ListView، واغلق Drawer بعد اختيار الصفحة.'],
+  TabBar:['شريط تبويبات يتيح التنقل بين أقسام مرتبطة داخل الشاشة نفسها.','استخدمه للتبديل بين مثل: الكل، المفضلة، والأحدث.','اربطه عادةً مع TabBarView وDefaultTabController أو TabController.'],
+  TabBarView:['يعرض محتوى الصفحة المطابق للتبويب المحدد في TabBar.','استخدمه عندما تريد أن يتغير محتوى الشاشة مع التبويبات مع دعم السحب.','تأكد من تطابق عدد children مع عدد التبويبات.'],
+  PageView:['يعرض مجموعة صفحات يمكن التنقل بينها صفحة بصفحة بالسحب.','استخدمه لشاشات الترحيب أو عرض الصور أو خطوات الإعداد.','استخدم PageController للتحكم بالانتقال برمجياً.'],
+  SingleChildScrollView:['يسمح بتمرير عنصر واحد كبير عندما يتجاوز أبعاد الشاشة.','استخدمه للنماذج الطويلة أو صفحات التفاصيل ذات المحتوى المتغير.','لا تستخدمه بدلاً من ListView للقوائم الطويلة ذات العناصر المتكررة.'],
+  RefreshIndicator:['يضيف سلوك السحب للأسفل لتحديث محتوى Scrollable.','استخدمه لتحديث قائمة الأخبار أو المحادثات أو الطلبات.','يجب أن تعيد onRefresh قيمة Future حتى يعرف المؤشر متى ينتهي التحديث.'],
+  Dismissible:['يسمح للمستخدم بإزالة عنصر من القائمة عبر سحبه في اتجاه محدد.','استخدمه لحذف إشعار أو مهمة أو رسالة من القائمة.','كل عنصر يحتاج Key فريداً، ويجب إزالة العنصر من مصدر البيانات داخل onDismissed.'],
+  Tooltip:['يعرض تلميحاً قصيراً عند المرور أو الضغط المطول على عنصر.','استخدمه لتوضيح معنى أيقونة أو زر غير واضح النص.','اجعل الرسالة قصيرة ومباشرة ولا تعتمد عليه وحده للمعلومات الضرورية.'],
+  Chip:['عنصر صغير يعرض معلومة أو اختياراً أو إجراءً مرتبطاً.','استخدمه لعرض الوسوم والفلاتر والتصنيفات.','استخدم ActionChip أو FilterChip أو InputChip عندما تحتاج سلوكاً متخصصاً.'],
+  Badge:['شارة صغيرة تعرض رقماً أو حالة فوق عنصر آخر.','استخدمها لعدد الرسائل غير المقروءة أو الإشعارات الجديدة.','استخدم Badge على IconButton أو NavigationBar destination لربط العدد بمكانه.'],
+  SegmentedButton:['مجموعة خيارات متجاورة تسمح باختيار عنصر واحد أو أكثر من مجموعة.','استخدمه لتبديل العرض بين قائمة وشبكة أو اختيار نطاق زمني.','حدد segments وselected وonSelectionChanged، وتأكد من توافق نوع الاختيارات.'],
+  NavigationBar:['شريط تنقل سفلي بتصميم Material 3 للتبديل بين الوجهات الرئيسية.','استخدمه في تطبيقات الجوال التي تحتوي على ثلاث إلى خمس وجهات رئيسية.','اربط selectedIndex مع حالة التطبيق وحدثه في onDestinationSelected.'],
+  NavigationRail:['شريط تنقل جانبي مناسب للشاشات الواسعة والأجهزة اللوحية.','استخدمه عندما تريد إبقاء التنقل ظاهراً على سطح المكتب أو التابلت.','يمكن دمجه مع LayoutBuilder لتغيير التنقل تلقائياً بحسب عرض الشاشة.'],
+  DataTable:['يعرض البيانات المنظمة في صفوف وأعمدة مع عناوين وخلايا.','استخدمه للجداول الإدارية مثل قائمة الموظفين أو الفواتير.','الجداول الكبيرة تحتاج حلول تمرير أو تقسيم صفحات حتى لا تصبح ثقيلة.'],
+  Stepper:['يعرض خطوات متتابعة توضح تقدّم المستخدم في عملية متعددة المراحل.','استخدمه في التسجيل المرحلي أو إعداد طلب أو عملية شراء.','تحكم في currentStep وonStepContinue وonStepCancel.'],
+  CupertinoButton:['زر بتصميم iOS مناسب للتطبيقات التي تستخدم عناصر Cupertino.','استخدمه داخل واجهات iOS-style المبنية باستخدام CupertinoApp.','استخدم Material وCupertino بما يتوافق مع لغة التصميم المطلوبة في الشاشة.'],
+  CupertinoSwitch:['مفتاح تبديل بأسلوب iOS.','استخدمه لتبديل إعداد داخل واجهة Cupertino.','اربط value وonChanged مع حالة StatefulWidget.'],
+  SafeArea:['يضيف هوامش تلقائية تمنع تداخل المحتوى مع النتوءات ومناطق النظام.','استخدمه حول محتوى الصفحة لحماية الأزرار والعناوين من حواف الجهاز.','ضعه داخل Scaffold body حسب بنية الشاشة، ولا تكرر الهوامش دون حاجة.'],
+  AspectRatio:['يحافظ على نسبة عرض إلى ارتفاع ثابتة للعنصر الابن.','استخدمه لصور الفيديو أو بطاقات المنتجات ذات الأبعاد المتناسقة.','تأكد من أن قيود الأب تسمح بالنسبة المطلوبة.'],
+  LayoutBuilder:['يبني واجهة بناءً على قيود المساحة التي يمنحها العنصر الأب.','استخدمه لتغيير عدد الأعمدة أو ترتيب العناصر حسب عرض المساحة المتاحة.','اقرأ constraints.maxWidth بدلاً من الاعتماد دائماً على حجم الشاشة الكامل.'],
+  MediaQuery:['يوفر معلومات عن مساحة الشاشة وكثافة البكسلات وإعدادات النظام مثل حجم النص.','استخدمه لاتخاذ قرارات تخطيط تعتمد على الشاشة أو إعدادات المستخدم.','في التصميم المتجاوب غالباً يكون LayoutBuilder أدق لمعرفة مساحة الأب الفعلية.'],
+  Theme:['يوفر تنسيقاً موحداً للألوان والخطوط والأزرار وبقية عناصر Material أسفل شجرة الواجهة.','استخدمه لتطبيق هوية لونية وخطوط متناسقة على التطبيق كاملاً.','عرّف ThemeData في MaterialApp بدلاً من تكرار الألوان في كل Widget.'],
+};
+
+const examples = {};
+const shell = (body, title='Widget Demo') => `import 'package:flutter/material.dart';\n\nvoid main() => runApp(const DemoApp());\n\nclass DemoApp extends StatelessWidget {\n  const DemoApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      debugShowCheckedModeBanner: false,\n      theme: ThemeData(colorSchemeSeed: Colors.deepPurple, useMaterial3: true),\n      home: Scaffold(\n        appBar: AppBar(title: const Text('${title}')),\n        body: Center(child: ${body}),\n      ),\n    );\n  }\n}\n`;
+examples.Text = shell("const Text('Hello Flutter!', style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.deepPurple))", 'Text Widget');
+examples.Container = shell("Container(width: 190, height: 120, alignment: Alignment.center, padding: const EdgeInsets.all(16), decoration: BoxDecoration(color: Colors.deepPurple, borderRadius: BorderRadius.circular(18)), child: const Text('Flutter Box', style: TextStyle(color: Colors.white, fontSize: 20)))", 'Container Widget');
+examples.Center = shell("const Text('I am centered', style: TextStyle(fontSize: 22))", 'Center Widget');
+examples.Padding = shell("Container(color: Colors.deepPurple.shade100, child: const Padding(padding: EdgeInsets.all(28), child: Text('Padding = 28 px', style: TextStyle(fontSize: 20))))", 'Padding Widget');
+examples.SizedBox = shell("Column(mainAxisSize: MainAxisSize.min, children: [Container(width: 90, height: 40, color: Colors.deepPurple), const SizedBox(height: 24), Container(width: 90, height: 40, color: Colors.teal)])", 'SizedBox Widget');
+examples.Row = shell("Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [for (final color in [Colors.deepPurple, Colors.teal, Colors.orange]) Container(width: 55, height: 55, decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(12)))])", 'Row Widget');
+examples.Column = shell("Column(mainAxisSize: MainAxisSize.min, children: [for (final label in ['First', 'Second', 'Third']) Padding(padding: const EdgeInsets.all(8), child: Text(label, style: const TextStyle(fontSize: 20)))])", 'Column Widget');
+examples.Expanded = shell("Row(children: [Expanded(child: Container(height: 75, color: Colors.deepPurple, child: const Center(child: Text('Expanded', style: TextStyle(color: Colors.white))))), const SizedBox(width: 8), Container(width: 65, height: 75, color: Colors.teal)])", 'Expanded Widget');
+examples.Stack = shell("Stack(alignment: Alignment.center, children: [Container(width: 190, height: 125, decoration: BoxDecoration(color: Colors.deepPurple, borderRadius: BorderRadius.circular(16))), const Icon(Icons.flutter_dash, size: 65, color: Colors.white), const Positioned(right: 10, top: 10, child: Icon(Icons.star, color: Colors.amber))])", 'Stack Widget');
+examples.Wrap = shell("Wrap(alignment: WrapAlignment.center, spacing: 8, runSpacing: 8, children: ['Flutter', 'Dart', 'Widgets', 'Mobile', 'Web', 'UI'].map((e) => Chip(label: Text(e))).toList())", 'Wrap Widget');
+examples.Card = shell("Card(elevation: 4, child: SizedBox(width: 250, child: Padding(padding: const EdgeInsets.all(20), child: Column(mainAxisSize: MainAxisSize.min, children: [const Icon(Icons.school, size: 38, color: Colors.deepPurple), const SizedBox(height: 12), const Text('Learn Flutter', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)), const Text('Build beautiful apps')]))))", 'Card Widget');
+examples.AppBar = `import 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: AppBarDemo()));\nclass AppBarDemo extends StatelessWidget {\n const AppBarDemo({super.key});\n @override Widget build(BuildContext context) => Scaffold(\n  appBar: AppBar(title: const Text('My Application'), leading: const Icon(Icons.menu), actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search)), IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))]),\n  body: const Center(child: Text('AppBar example', style: TextStyle(fontSize: 22))),\n );\n}`;
+examples.Scaffold = `import 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: ScaffoldDemo()));\nclass ScaffoldDemo extends StatelessWidget {\n const ScaffoldDemo({super.key});\n @override Widget build(BuildContext context) => Scaffold(\n  appBar: AppBar(title: const Text('Scaffold example')),\n  body: const Center(child: Text('This is the body', style: TextStyle(fontSize: 22))),\n  floatingActionButton: FloatingActionButton(onPressed: () {}, child: const Icon(Icons.add)),\n  bottomNavigationBar: NavigationBar(destinations: const [NavigationDestination(icon: Icon(Icons.home), label: 'Home'), NavigationDestination(icon: Icon(Icons.person), label: 'Profile')]),\n );\n}`;
+examples.ElevatedButton = shell("ElevatedButton.icon(onPressed: () {}, icon: const Icon(Icons.play_arrow), label: const Text('Run example'))", 'ElevatedButton');
+examples.OutlinedButton = shell("OutlinedButton.icon(onPressed: () {}, icon: const Icon(Icons.download), label: const Text('Download'))", 'OutlinedButton');
+examples.TextButton = shell("TextButton(onPressed: () {}, child: const Text('Learn more'))", 'TextButton');
+examples.IconButton = shell("IconButton(onPressed: () {}, icon: const Icon(Icons.favorite, size: 42, color: Colors.pink))", 'IconButton');
+examples.FloatingActionButton = `import 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: ScaffoldDemo()));\nclass ScaffoldDemo extends StatelessWidget {\n const ScaffoldDemo({super.key});\n @override Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('FloatingActionButton')), body: const Center(child: Text('Tap the + button')), floatingActionButton: FloatingActionButton(onPressed: () {}, child: const Icon(Icons.add)));\n}`;
+examples.ListTile = shell("const ListTile(leading: CircleAvatar(child: Icon(Icons.person)), title: Text('Ahmed Ali'), subtitle: Text('Flutter Developer'), trailing: Icon(Icons.chevron_right))", 'ListTile');
+examples.Icon = shell("const Icon(Icons.flutter_dash, size: 72, color: Colors.deepPurple)", 'Icon Widget');
+examples.Image = shell("ClipRRect(borderRadius: BorderRadius.circular(18), child: Image.network('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg', width: 220, height: 150, fit: BoxFit.cover))", 'Image Widget');
+examples.CircularProgressIndicator = shell("const CircularProgressIndicator(strokeWidth: 6, valueColor: AlwaysStoppedAnimation<Color>(Colors.deepPurple))", 'CircularProgressIndicator');
+examples.LinearProgressIndicator = shell("const SizedBox(width: 230, child: LinearProgressIndicator(value: 0.7, minHeight: 10, borderRadius: BorderRadius.all(Radius.circular(8))) )", 'LinearProgressIndicator');
+examples.SingleChildScrollView = shell("SingleChildScrollView(child: Column(children: List.generate(18, (i) => ListTile(leading: CircleAvatar(child: Text('\u0024{i + 1}')), title: Text('Scrollable item ${i + 1}'), subtitle: const Text('Scroll to see more')))))", 'SingleChildScrollView');
+examples.GridView = shell("SizedBox(width: 270, height: 290, child: GridView.count(crossAxisCount: 2, mainAxisSpacing: 8, crossAxisSpacing: 8, children: List.generate(6, (i) => Container(decoration: BoxDecoration(color: Colors.deepPurple.shade100, borderRadius: BorderRadius.circular(12)), child: Center(child: Text('Item ${i + 1}'))))))", 'GridView');
+examples.ListView = shell("SizedBox(width: 280, height: 300, child: ListView.builder(itemCount: 8, itemBuilder: (context, index) => Card(child: ListTile(leading: const Icon(Icons.widgets), title: Text('Widget ${index + 1}'), trailing: const Icon(Icons.chevron_right)))))", 'ListView');
+examples.PageView = shell("SizedBox(height: 220, child: PageView(children: [for (final color in [Colors.deepPurple, Colors.teal, Colors.orange]) Container(margin: const EdgeInsets.all(16), decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(18)), child: const Center(child: Text('Swipe me', style: TextStyle(color: Colors.white, fontSize: 22))))]))", 'PageView');
+examples.Chip = shell("Wrap(spacing: 8, children: const [Chip(avatar: Icon(Icons.code), label: Text('Flutter')), Chip(label: Text('Dart')), Chip(label: Text('UI Design'))])", 'Chip Widget');
+examples.Badge = shell("Badge(label: const Text('8'), child: IconButton(onPressed: () {}, icon: const Icon(Icons.notifications, size: 42)))", 'Badge Widget');
+examples.Tooltip = shell("const Tooltip(message: 'This is a helpful tooltip', child: Icon(Icons.info_outline, size: 48, color: Colors.deepPurple))", 'Tooltip');
+examples.AspectRatio = shell("AspectRatio(aspectRatio: 16 / 9, child: Container(color: Colors.deepPurple, child: const Center(child: Text('16 : 9', style: TextStyle(color: Colors.white, fontSize: 22)))))", 'AspectRatio');
+examples.SafeArea = shell("Container(color: Colors.teal.shade100, child: const SafeArea(child: Padding(padding: EdgeInsets.all(18), child: Text('Content stays inside the safe area', style: TextStyle(fontSize: 18)))))", 'SafeArea');
+examples.ClipOval = shell("ClipOval(child: Container(width: 140, height: 140, color: Colors.deepPurple, child: const Icon(Icons.person, size: 80, color: Colors.white)))", 'ClipOval');
+examples.Opacity = shell("Opacity(opacity: 0.35, child: Container(width: 150, height: 100, color: Colors.deepPurple, child: const Center(child: Text('35%', style: TextStyle(color: Colors.white, fontSize: 24)))))", 'Opacity');
+examples.Transform = shell("Transform.rotate(angle: 0.25, child: Container(width: 130, height: 90, color: Colors.deepPurple, child: const Center(child: Text('Rotate', style: TextStyle(color: Colors.white, fontSize: 20)))))", 'Transform');
+examples.Dismissible = `import 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: DismissibleDemo()));\nclass DismissibleDemo extends StatefulWidget { const DismissibleDemo({super.key}); @override State<DismissibleDemo> createState() => _DismissibleDemoState(); }\nclass _DismissibleDemoState extends State<DismissibleDemo> { final items = List.generate(5, (i) => 'Task \${i + 1}'); @override Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('Dismissible')), body: ListView(children: items.map((item) => Dismissible(key: ValueKey(item), background: Container(color: Colors.red, padding: const EdgeInsets.all(16), alignment: Alignment.centerLeft, child: const Icon(Icons.delete, color: Colors.white)), onDismissed: (_) => setState(() => items.remove(item)), child: ListTile(title: Text(item), leading: const Icon(Icons.task_alt)))).toList())); }`;
+examples.GestureDetector = `import 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: GestureDemo()));\nclass GestureDemo extends StatefulWidget { const GestureDemo({super.key}); @override State<GestureDemo> createState() => _GestureDemoState(); }\nclass _GestureDemoState extends State<GestureDemo> { bool active = false; @override Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('GestureDetector')), body: Center(child: GestureDetector(onTap: () => setState(() => active = !active), child: AnimatedContainer(duration: const Duration(milliseconds: 250), width: 190, height: 140, decoration: BoxDecoration(color: active ? Colors.teal : Colors.deepPurple, borderRadius: BorderRadius.circular(active ? 48 : 14)), child: Center(child: Text(active ? 'Tapped!' : 'Tap me', style: const TextStyle(color: Colors.white, fontSize: 22))))))); }`;
+examples.AnimatedContainer = `import 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: AnimatedContainerDemo()));\nclass AnimatedContainerDemo extends StatefulWidget { const AnimatedContainerDemo({super.key}); @override State<AnimatedContainerDemo> createState() => _AnimatedContainerDemoState(); }\nclass _AnimatedContainerDemoState extends State<AnimatedContainerDemo> { bool expanded = false; @override Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('AnimatedContainer')), body: Center(child: Column(mainAxisSize: MainAxisSize.min, children: [GestureDetector(onTap: () => setState(() => expanded = !expanded), child: AnimatedContainer(duration: const Duration(milliseconds: 500), curve: Curves.easeInOut, width: expanded ? 230 : 120, height: expanded ? 150 : 100, decoration: BoxDecoration(color: expanded ? Colors.teal : Colors.deepPurple, borderRadius: BorderRadius.circular(expanded ? 30 : 12)), child: const Center(child: Icon(Icons.flutter_dash, color: Colors.white, size: 48)))), const SizedBox(height: 18), const Text('Tap the box')]))); }`;
+examples.AnimatedOpacity = `import 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: AnimatedOpacityDemo()));\nclass AnimatedOpacityDemo extends StatefulWidget { const AnimatedOpacityDemo({super.key}); @override State<AnimatedOpacityDemo> createState() => _AnimatedOpacityDemoState(); }\nclass _AnimatedOpacityDemoState extends State<AnimatedOpacityDemo> { bool visible = true; @override Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('AnimatedOpacity')), body: Center(child: Column(mainAxisSize: MainAxisSize.min, children: [AnimatedOpacity(opacity: visible ? 1 : 0.12, duration: const Duration(milliseconds: 500), child: const Icon(Icons.flutter_dash, size: 110, color: Colors.deepPurple)), const SizedBox(height: 18), ElevatedButton(onPressed: () => setState(() => visible = !visible), child: const Text('Toggle opacity'))]))); }`;
+examples.TextField = `import 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: TextFieldDemo()));\nclass TextFieldDemo extends StatefulWidget { const TextFieldDemo({super.key}); @override State<TextFieldDemo> createState() => _TextFieldDemoState(); }\nclass _TextFieldDemoState extends State<TextFieldDemo> { String value = ''; @override Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('TextField')), body: Padding(padding: const EdgeInsets.all(24), child: Column(mainAxisSize: MainAxisSize.min, children: [TextField(decoration: const InputDecoration(labelText: 'Your name', hintText: 'Enter your name', border: OutlineInputBorder(), prefixIcon: Icon(Icons.person)), onChanged: (text) => setState(() => value = text)), const SizedBox(height: 18), Text('Hello, $value', style: const TextStyle(fontSize: 20))]))); }`;
+examples.Checkbox = `import 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: CheckboxDemo()));\nclass CheckboxDemo extends StatefulWidget { const CheckboxDemo({super.key}); @override State<CheckboxDemo> createState() => _CheckboxDemoState(); }\nclass _CheckboxDemoState extends State<CheckboxDemo> { bool accepted = false; @override Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('Checkbox')), body: Center(child: Row(mainAxisSize: MainAxisSize.min, children: [Checkbox(value: accepted, onChanged: (value) => setState(() => accepted = value ?? false)), const Text('I agree to the terms')]))); }`;
+examples.Switch = `import 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: SwitchDemo()));\nclass SwitchDemo extends StatefulWidget { const SwitchDemo({super.key}); @override State<SwitchDemo> createState() => _SwitchDemoState(); }\nclass _SwitchDemoState extends State<SwitchDemo> { bool enabled = true; @override Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('Switch')), body: Center(child: Row(mainAxisSize: MainAxisSize.min, children: [const Text('Notifications'), Switch(value: enabled, onChanged: (value) => setState(() => enabled = value))]))); }`;
+examples.Slider = `import 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: SliderDemo()));\nclass SliderDemo extends StatefulWidget { const SliderDemo({super.key}); @override State<SliderDemo> createState() => _SliderDemoState(); }\nclass _SliderDemoState extends State<SliderDemo> { double value = 40; @override Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('Slider')), body: Center(child: Padding(padding: const EdgeInsets.all(24), child: Column(mainAxisSize: MainAxisSize.min, children: [Text('Value: \${value.round()}', style: const TextStyle(fontSize: 24)), Slider(value: value, min: 0, max: 100, divisions: 10, label: value.round().toString(), onChanged: (v) => setState(() => value = v))])))); }`;
+examples.DropdownButton = `import 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: DropdownDemo()));\nclass DropdownDemo extends StatefulWidget { const DropdownDemo({super.key}); @override State<DropdownDemo> createState() => _DropdownDemoState(); }\nclass _DropdownDemoState extends State<DropdownDemo> { String selected = 'Flutter'; @override Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('DropdownButton')), body: Center(child: DropdownButton<String>(value: selected, items: ['Flutter', 'React', 'Swift'].map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(), onChanged: (value) => setState(() => selected = value!)))); }`;
+examples.FutureBuilder = `import 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: FutureBuilderDemo()));\nclass FutureBuilderDemo extends StatefulWidget { const FutureBuilderDemo({super.key}); @override State<FutureBuilderDemo> createState() => _FutureBuilderDemoState(); }\nclass _FutureBuilderDemoState extends State<FutureBuilderDemo> { late final Future<String> future; @override void initState() { super.initState(); future = loadMessage(); } Future<String> loadMessage() async { await Future.delayed(const Duration(seconds: 2)); return 'Data loaded successfully'; } @override Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('FutureBuilder')), body: Center(child: FutureBuilder<String>(future: future, builder: (context, snapshot) { if (snapshot.connectionState == ConnectionState.waiting) return const CircularProgressIndicator(); if (snapshot.hasError) return const Text('Something went wrong'); return Text(snapshot.data ?? '', style: const TextStyle(fontSize: 20)); }))); }`;
+examples.StreamBuilder = `import 'dart:async';\nimport 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: StreamBuilderDemo()));\nclass StreamBuilderDemo extends StatelessWidget { const StreamBuilderDemo({super.key}); static final Stream<int> stream = Stream.periodic(const Duration(seconds: 1), (count) => count + 1).take(10); @override Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('StreamBuilder')), body: Center(child: StreamBuilder<int>(stream: stream, builder: (context, snapshot) => Text('Counter: \${snapshot.data ?? 0}', style: const TextStyle(fontSize: 28))))); }`;
+examples.AlertDialog = `import 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: AlertDialogDemo()));\nclass AlertDialogDemo extends StatelessWidget { const AlertDialogDemo({super.key}); @override Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('AlertDialog')), body: Center(child: ElevatedButton(onPressed: () => showDialog(context: context, builder: (context) => AlertDialog(title: const Text('Delete item?'), content: const Text('This action cannot be undone.'), actions: [TextButton(onPressed: () => Navigator.pop(context), child: const Text('Cancel')), FilledButton(onPressed: () => Navigator.pop(context), child: const Text('Delete'))])), child: const Text('Open dialog')))); }`;
+examples.SnackBar = `import 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: SnackBarDemo()));\nclass SnackBarDemo extends StatelessWidget { const SnackBarDemo({super.key}); @override Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('SnackBar')), body: Center(child: ElevatedButton(onPressed: () => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Saved successfully!'))), child: const Text('Show SnackBar')))); }`;
+examples.NavigationBar = `import 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: NavigationBarDemo()));\nclass NavigationBarDemo extends StatefulWidget { const NavigationBarDemo({super.key}); @override State<NavigationBarDemo> createState() => _NavigationBarDemoState(); }\nclass _NavigationBarDemoState extends State<NavigationBarDemo> { int index = 0; @override Widget build(BuildContext context) => Scaffold(body: Center(child: Text(['Home', 'Search', 'Profile'][index], style: const TextStyle(fontSize: 28))), bottomNavigationBar: NavigationBar(selectedIndex: index, onDestinationSelected: (v) => setState(() => index = v), destinations: const [NavigationDestination(icon: Icon(Icons.home), label: 'Home'), NavigationDestination(icon: Icon(Icons.search), label: 'Search'), NavigationDestination(icon: Icon(Icons.person), label: 'Profile')])); }`;
+examples.RefreshIndicator = `import 'package:flutter/material.dart';\nvoid main() => runApp(const MaterialApp(home: RefreshDemo()));\nclass RefreshDemo extends StatefulWidget { const RefreshDemo({super.key}); @override State<RefreshDemo> createState() => _RefreshDemoState(); }\nclass _RefreshDemoState extends State<RefreshDemo> { int count = 5; Future<void> refresh() async { await Future.delayed(const Duration(seconds: 1)); setState(() => count += 2); } @override Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('RefreshIndicator')), body: RefreshIndicator(onRefresh: refresh, child: ListView(children: List.generate(count, (i) => ListTile(title: Text('Item \${i + 1}'), leading: const Icon(Icons.list)))))); }`;
+
+const knownWidgets = [];
+for (const [category, list] of Object.entries(widgetGroups)) {
+  for (const name of list.trim().split(/\s+/)) {
+    if (!knownWidgets.some(item => item.name === name)) knownWidgets.push({name, category});
+  }
+}
+
+const categoryText = {
+  basics:'أساسيات بناء واجهة Flutter وتشغيل التطبيق وعرض المحتوى الأساسي.',
+  layout:'ينظم العناصر ويحدد أحجامها ومحاذاتها والمسافات بينها داخل الشاشة.',
+  material:'مكوّنات واجهة Material Design مثل الأزرار والبطاقات والتنقل والتنبيهات.',
+  inputs:'عناصر تستقبل اختيارات المستخدم والنصوص والقيم وتتحقق من النماذج.',
+  scroll:'عناصر تعرض محتوى قابلاً للتمرير والقوائم والصفحات وواجهات Sliver.',
+  animation:'عناصر تضيف انتقالات وحركة وتغييرات مرئية بين حالات الواجهة.',
+  interaction:'عناصر تلتقط اللمس والسحب والنقر وتتحكم في التفاعل مع الشاشة.',
+  async:'عناصر تبني الواجهة من نتائج Future أو تحديثات Stream.',
+  cupertino:'عناصر واجهة مستوحاة من تصميم Apple لأنظمة iOS وmacOS.',
+  effects:'عناصر للرسم والقص والشفافية والتحويلات والمؤثرات البصرية.',
+  accessibility:'عناصر تحسّن وصف الواجهة ودعم قارئات الشاشة وإمكانية الوصول.',
+  reference:'أنواع وأدوات مساعدة ضمن Flutter SDK؛ بعضها ليس Widget مرئياً مستقلاً.'
+};
+const arabicDescriptions = {
+  AbsorbPointer:'يمنع وصول أحداث اللمس إلى العناصر الموجودة داخل شجرته.', Align:'يضبط موضع العنصر الابن داخل المساحة المتاحة.', AspectRatio:'يحافظ على نسبة محددة بين العرض والارتفاع.', Baseline:'يحاذي العنصر وفق خط الأساس للنص.', ConstrainedBox:'يفرض قيوداً إضافية على حجم العنصر الابن.', FittedBox:'يغيّر مقياس العنصر الابن ليلائم المساحة المتاحة.', FractionallySizedBox:'يضبط حجم الابن كنسبة من المساحة المتاحة.', IntrinsicHeight:'يجعل الارتفاع مبنياً على الارتفاع الطبيعي لمحتوى الأبناء.', IntrinsicWidth:'يجعل العرض مبنياً على العرض الطبيعي لمحتوى الأبناء.', LayoutBuilder:'يقرر شكل الواجهة بناءً على قيود المساحة القادمة من العنصر الأب.', LimitedBox:'يضع حداً للحجم فقط عندما تكون القيود غير محدودة.', OverflowBox:'يسمح للابن باستخدام قيود مختلفة عن قيود العنصر الأب.', SizedOverflowBox:'يحافظ على حجم محدد مع تمرير القيود الأصلية إلى الابن.', CustomPaint:'يرسم أشكالاً ورسومات مخصصة عبر CustomPainter.', CustomScrollView:'يبني تمريراً مخصصاً يجمع عدة Sliver في مساحة واحدة.', Draggable:'يسمح بسحب عنصر وإسقاطه في منطقة متوافقة.', DragTarget:'يستقبل البيانات التي يتم إسقاطها من Draggable.', Dismissible:'يسمح بإزالة عنصر من القائمة بالسحب.', NestedScrollView:'ينسق التمرير بين قائمة خارجية وقوائم داخلية متداخلة.', ReorderableListView:'يسمح بإعادة ترتيب عناصر القائمة بالسحب.', SliverAppBar:'شريط علوي يتغير ويتفاعل مع التمرير داخل CustomScrollView.', SliverGrid:'يعرض عناصر Sliver في شبكة قابلة للتمرير.', SliverList:'يعرض عناصر متتابعة ضمن نظام Slivers.', SliverPadding:'يضيف مسافات حول عنصر Sliver.', SliverToBoxAdapter:'يحوّل Widget عادي إلى عنصر يمكن وضعه داخل CustomScrollView.', Navigator:'يدير سجل الصفحات والتنقل بينها داخل التطبيق.', IndexedStack:'يعرض ابناً واحداً من عدة أبناء مع الاحتفاظ بحالة بقية الأبناء.', InteractiveViewer:'يسمح بالتكبير والتصغير والتحريك داخل مساحة تفاعلية.', Hero:'ينفذ انتقالاً بصرياً مشتركاً لعنصر بين صفحتين.', Opacity:'يغير شفافية العنصر الابن.', BackdropFilter:'يطبق تأثيراً مثل الضبابية على المحتوى المرسوم خلفه.', ClipOval:'يقص محتوى الابن داخل شكل بيضاوي.', ClipPath:'يقص محتوى الابن وفق مسار مخصص.', ClipRect:'يقص المحتوى داخل مستطيل.', RotatedBox:'يدير العنصر بمضاعفات ربع دورة أثناء التخطيط.', Transform:'يطبق تحويلاً هندسياً مثل الدوران أو الإزاحة أو تغيير الحجم.', DecoratedBox:'يرسم زخرفة خلف العنصر الابن أو أمامه.', FutureBuilder:'يعرض واجهة حسب حالة عملية Future غير المتزامنة.', StreamBuilder:'يعيد بناء الواجهة عند وصول قيمة جديدة من Stream.', CupertinoApp:'جذر التطبيق عند استخدام تصميم Cupertino.', CupertinoPageScaffold:'يوفر الهيكل الأساسي لشاشة Cupertino.', CupertinoNavigationBar:'شريط تنقل علوي بأسلوب iOS.', CupertinoListTile:'صف قائمة بتصميم iOS.', CupertinoSearchTextField:'حقل بحث بتصميم iOS.', CupertinoPicker:'أداة اختيار دوارة على نمط iOS.', CupertinoActivityIndicator:'مؤشر تحميل بأسلوب iOS.', CupertinoAlertDialog:'نافذة حوارية بأسلوب iOS.'
+};
+const specialTypes = new Set(['AssetBundle','AnimatedListState','CupertinoAdaptiveTextSelectionToolbar','CupertinoColors','CupertinoDesktopTextSelectionControls','CupertinoDesktopTextSelectionToolbar','CupertinoDesktopTextSelectionToolbarButton','CupertinoDynamicColor','CupertinoLocalizations','CupertinoMagnifier','CupertinoModalPopupRoute','CupertinoScrollBehavior','CupertinoSpellCheckSuggestionsToolbar','CupertinoTextMagnifier','CupertinoTextSelectionControls','CupertinoTextSelectionToolbar','CupertinoTextSelectionToolbarButton','CupertinoTextThemeData','CupertinoThemeData','CupertinoThumbPainter','CustomMultiChildLayout','CustomSingleChildLayout','FormField','ImplicitlyAnimatedWidget','MatrixTransition','Menu','NotificationListener','RawImage','ScrollConfiguration','Scrollable','TabController','TabPageSelector','TimePicker','DatePicker','Table','WidgetStateMouseCursor']);
+const useCases = {
+  basics:'ابنِ شاشة تطبيق فعلية ثم أضف إليه المكونات الأساسية.', layout:'ضعه داخل Row أو Column أو Stack حسب شكل الشاشة، وراقب قيود المساحة من العنصر الأب.', material:'استخدمه ضمن Scaffold مع ThemeData لضمان تناسق تصميم التطبيق.', inputs:'اربط قيمته مع State أو FormState، ثم تحقق من المدخلات قبل تنفيذ الإجراء.', scroll:'استخدمه عندما يزيد المحتوى عن المساحة المرئية، واختر النسخة المناسبة لحجم البيانات.', animation:'اربط تغير خصائصه بتفاعل المستخدم وحدد مدة الحركة ومنحنى الانتقال.', interaction:'اربط callback بإجراء واضح، واختبر السلوك على اللمس والماوس ولوحة المفاتيح.', async:'اعرض حالات التحميل والنجاح والخطأ بوضوح، ولا تبدأ العملية داخل build دون تخطيط.', cupertino:'استخدمه في واجهة iOS متناسقة مع CupertinoApp وCupertinoTheme.', effects:'طبقه بحذر لأن بعض المؤثرات قد تكون مكلفة بصرياً أو حسابياً.', accessibility:'أضف الوصف الدلالي المناسب واختبر الواجهة بقارئ الشاشة.', reference:'راجع وثائق API لمعرفة دور هذا النوع والخصائص المرتبطة به.'
+};
+window.WIDGETS = knownWidgets.map((item, index) => {
+  const name = item.name;
+  const known = definitions[name];
+  const description = arabicDescriptions[name] || (known ? known[0] : `${name} — ${categoryText[item.category]}`);
+  const type = specialTypes.has(name) ? 'API' : 'Widget';
+  const apiLibrary = item.category === 'cupertino' ? 'cupertino' : item.category === 'material' || ['AlertDialog','Card','AppBar','Scaffold','TextField','Checkbox','Switch','Slider','DropdownButton'].includes(name) ? 'material' : 'widgets';
+  const apiUrl = `https://api.flutter.dev/flutter/${apiLibrary}/${name}-class.html`;
+  return {
+    id: name.toLowerCase().replace(/[^a-z0-9]+/g, '-'), name,
+    category: item.category, type,
+    description,
+    explanation: known ? known[0] : description,
+    use: known ? known[1] : useCases[item.category],
+    tip: known ? known[2] : `راجع خصائص ${name} في توثيق Flutter الرسمي، وتحقق من التوافق مع إصدار Flutter المستخدم في مشروعك.`,
+    code: examples[name] || null,
+    docs: apiUrl,
+    glyph: ({basics:'▣',layout:'⊞',material:'◈',inputs:'⌨',scroll:'☷',animation:'✧',interaction:'☝',async:'◷',cupertino:'◉',effects:'◌',accessibility:'◎',reference:'⌘'})[item.category]
+  };
+});
+
+</script>
+  <script>
+(() => {
+  const $ = (selector) => document.querySelector(selector);
+  const $$ = (selector) => [...document.querySelectorAll(selector)];
+  const widgets = window.WIDGETS || [];
+  const categories = window.WIDGET_CATEGORIES || [];
+  const state = { category:'all', query:'', favorites:new Set(JSON.parse(localStorage.getItem('flutterlab-favorites') || '[]')), selected:null, view:'catalog', favoritesOnly:false, currentCode:'', dartpadLoaded:false, snippets:[], theme:localStorage.getItem('flutterlab-theme') || 'dark' };
+  const savedIds = () => [...state.favorites];
+  const saveFavorites = () => localStorage.setItem('flutterlab-favorites', JSON.stringify(savedIds()));
+  const category = (id) => categories.find(x => x.id === id) || categories[0];
+  const getWidget = (id) => widgets.find(x => x.id === id);
+  const escapeHtml = (str) => String(str).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const codeFor = (widget) => widget?.code || `import 'package:flutter/material.dart';\n\nvoid main() {\n  runApp(const MaterialApp(\n    home: Scaffold(\n      body: Center(\n        child: Text('${widget?.name || 'Flutter'} example'),\n      ),\n    ),\n  ));\n}\n`;
+  const sampleText = (widget) => widget?.code ? 'مثال مدمج' : widget?.sampleId ? 'مثال Flutter الرسمي' : 'مرجع API';
+
+  function setTheme(theme) {
+    state.theme = theme;
+    document.body.classList.toggle('light', theme === 'light');
+    localStorage.setItem('flutterlab-theme', theme);
+    $('#theme-toggle').textContent = theme === 'light' ? '☾' : '◐';
+  }
+  setTheme(state.theme);
+
+  function counts() {
+    $('#total-widgets').textContent = `${widgets.length}+`;
+    $('#sample-count').textContent = widgets.filter(w => w.code || w.sampleId).length;
+    $('#category-count').textContent = categories.length - 1;
+    $('#saved-count').textContent = state.favorites.size;
+    $('#fav-filter-count').textContent = state.favorites.size;
+  }
+
+  function renderCategories() {
+    $('#category-strip').innerHTML = categories.map(c => {
+      const count = c.id === 'all' ? widgets.length : widgets.filter(w => w.category === c.id).length;
+      return `<button class="category-chip ${state.category === c.id ? 'active':''}" data-category="${c.id}">${c.icon} ${c.name} <span>${count}</span></button>`;
+    }).join('');
+  }
+
+  function filteredWidgets() {
+    const q = state.query.trim().toLowerCase();
+    return widgets.filter(w => {
+      const byCategory = state.category === 'all' || w.category === state.category;
+      const byFavorite = !state.favoritesOnly || state.favorites.has(w.id);
+      const byQuery = !q || [w.name,w.description,w.explanation,category(w.category).name].join(' ').toLowerCase().includes(q);
+      return byCategory && byFavorite && byQuery;
+    });
+  }
+
+  function renderCards() {
+    const items = filteredWidgets();
+    $('#result-count').textContent = `${items.length} عنصر`;
+    $('#widget-grid').innerHTML = items.map(w => `
+      <article class="widget-card" data-open="${w.id}" tabindex="0" role="button" aria-label="شرح ${w.name}">
+        <div class="widget-card-top"><span class="widget-glyph">${w.glyph}</span><span class="widget-tag">${w.type === 'API' ? 'API' : 'WIDGET'}</span></div>
+        <button class="widget-fav ${state.favorites.has(w.id) ? 'saved':''}" data-favorite="${w.id}" aria-label="${state.favorites.has(w.id) ? 'إزالة من المفضلة':'إضافة للمفضلة'}">${state.favorites.has(w.id) ? '♥':'♡'}</button>
+        <h3>${w.name}</h3><p>${w.description}</p>
+        <div class="widget-card-bottom"><span>${category(w.category).name}</span><b>←</b></div>
+      </article>`).join('');
+    $('#empty-state').classList.toggle('hidden', items.length !== 0);
+    $('#widget-grid').classList.toggle('hidden', items.length === 0);
+  }
+
+  function changeView(view) {
+    state.view = view;
+    $$('.view').forEach(v => v.classList.remove('active'));
+    if (view === 'catalog') $('#catalog-view').classList.add('active');
+    if (view === 'detail') $('#detail-view').classList.add('active');
+    if (view === 'runner') $('#runner-view').classList.add('active');
+    $$('.top-link[data-view]').forEach(btn => btn.classList.toggle('active', btn.dataset.view === (view === 'detail' ? 'catalog' : view)));
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  function renderPreview(widget) {
+    const root = $('#widget-preview');
+    const previews = {
+      Text:'<div class="preview-text">Hello Flutter!</div>', Container:'<div class="preview-box">Container</div>', Row:'<div class="preview-row"><i></i><i></i><i></i></div>', Column:'<div class="preview-col"><i></i><i></i><i></i></div>', Card:'<div class="preview-card-mini"><b>Card</b><i></i><i></i></div>', ElevatedButton:'<div class="preview-button">Tap me</div>', TextField:'<div class="preview-field">Enter text…</div>', ListView:'<div class="preview-list"><i></i><i></i><i></i><i></i></div>', GridView:'<div class="preview-grid"><i></i><i></i><i></i><i></i></div>', Icon:'<div class="preview-icon">✦</div>', Badge:'<div class="preview-badge">●<b>3</b></div>', Switch:'<div class="preview-switch"><i></i></div>', Checkbox:'<div class="preview-checkbox">✓</div>', Slider:'<div class="preview-slider"><i></i></div>'
+    };
+    root.innerHTML = `<div class="preview-top"></div><div class="preview-body">${previews[widget.name] || '<div class="preview-placeholder"></div><div class="preview-lines"><i></i><i></i><i></i></div>'}</div>`;
+  }
+
+  function showWidget(id) {
+    const widget = getWidget(id);
+    if (!widget) return;
+    state.selected = widget;
+    const c = category(widget.category);
+    $('#detail-category').textContent = c.name;
+    $('#detail-kicker').textContent = `${c.name.toUpperCase()} / ${widget.type.toUpperCase()}`;
+    $('#detail-name').textContent = widget.name;
+    $('#detail-summary').textContent = widget.description;
+    $('#detail-type').textContent = widget.type;
+    $('#detail-explanation').textContent = widget.explanation;
+    $('#detail-use').textContent = widget.use;
+    $('#detail-code').textContent = widget.code || (widget.sampleId ? `// Official Flutter API sample: ${widget.sampleId}\n// Run it in the interactive playground to open the official sample.\n` : `// لا يوجد مثال مدمج لهذا العنصر حتى الآن.\n// راجع توثيق Flutter الرسمي لمعرفة واجهة API والخصائص.\n// ${widget.name}\n`);
+    $('#detail-tip span').textContent = widget.tip;
+    $('#detail-docs').href = widget.docs;
+    $('#detail-favorite').textContent = state.favorites.has(widget.id) ? '♥' : '♡';
+    $('#detail-favorite').style.color = state.favorites.has(widget.id) ? '#f4a6c6' : '';
+    $('#detail-run').disabled = !(widget.code || widget.sampleId);
+    $('#detail-run').style.opacity = (widget.code || widget.sampleId) ? '1' : '.45';
+    $('#detail-run').title = (widget.code || widget.sampleId) ? 'تشغيل المثال' : 'لا يوجد مثال تشغيل مدمج لهذا العنصر حالياً';
+    $('#aside-category').textContent = c.name;
+    $('#aside-type').textContent = widget.type;
+    $('#aside-runnable').textContent = sampleText(widget);
+    const related = widgets.filter(w => w.category === widget.category && w.id !== widget.id).slice(0,5);
+    $('#related-list').innerHTML = related.map(w => `<button class="related-chip" data-open="${w.id}">${w.name}</button>`).join('');
+    renderPreview(widget);
+    changeView('detail');
+  }
+
+  function toggleFavorite(id) {
+    if (state.favorites.has(id)) state.favorites.delete(id); else state.favorites.add(id);
+    saveFavorites(); counts(); renderCards();
+    if (state.selected?.id === id) {
+      $('#detail-favorite').textContent = state.favorites.has(id) ? '♥' : '♡';
+      $('#detail-favorite').style.color = state.favorites.has(id) ? '#f4a6c6' : '';
+    }
+  }
+
+  function openRunner(widget = state.selected) {
+    if (!widget || !(widget.code || widget.sampleId)) return;
+    state.selected = widget;
+    state.currentCode = widget.code || '';
+    state.runnerOfficialDefault = widget.sampleId ? `// Flutter official sample: ${widget.sampleId}\n// Press Run to load the official editable DartPad example.\n` : '';
+    $('#runner-code').value = widget.code || state.runnerOfficialDefault;
+    $('#runner-widget-name').textContent = widget.name;
+    $('#dartpad-frame-wrap').innerHTML = `<div class="runner-placeholder"><div class="runner-spinner">▶</div><h3>الكود جاهز للتشغيل</h3><p>اضغط زر التشغيل لفتح بيئة DartPad التفاعلية.</p><button class="secondary-btn" id="load-sample">تحميل المثال وتشغيله</button></div>`;
+    changeView('runner');
+  }
+
+  function makeDartPadFrame(code) {
+    const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>html,body{margin:0;min-height:100%;background:#101827;color:#e8edf8;font-family:Arial,sans-serif}pre{margin:0;padding:18px;white-space:pre-wrap;direction:ltr;text-align:left;background:#101827;color:#dce6f8;font:12px/1.6 monospace}</style></head><body><pre><code class="language-run-dartpad:theme-dark:mode-flutter:run-true">${escapeHtml(code)}</code></pre><script src="https://dartpad.dev/inject_embed.dart.js" defer></scr${'ipt'}></body></html>`;
+    const frame = document.createElement('iframe');
+    frame.title = 'DartPad Flutter code editor and live preview';
+    frame.setAttribute('allow', 'clipboard-read; clipboard-write; fullscreen');
+    frame.setAttribute('referrerpolicy', 'no-referrer');
+    frame.srcdoc = html;
+    return frame;
+  }
+
+  function runCode() {
+    const code = $('#runner-code').value.trim();
+    if (!code) return;
+    state.currentCode = code;
+    const holder = $('#dartpad-frame-wrap');
+    holder.innerHTML = '';
+    if (state.selected?.sampleId && code === state.runnerOfficialDefault) {
+      const url = new URL('https://dartpad.dev/embed-flutter.html');
+      url.searchParams.set('sample_id', state.selected.sampleId);
+      url.searchParams.set('theme', 'dark');
+      url.searchParams.set('run', 'true');
+      url.searchParams.set('split', '45');
+      const frame = document.createElement('iframe');
+      frame.title = `Official Flutter sample for ${state.selected.name}`;
+      frame.src = url.toString();
+      frame.setAttribute('allow', 'clipboard-read; clipboard-write; fullscreen');
+      holder.appendChild(frame);
+    } else {
+      holder.appendChild(makeDartPadFrame(code));
+    }
+    $('.output-live').innerHTML = '<i></i> LOADING';
+    window.setTimeout(() => { $('.output-live').innerHTML = '<i></i> EMBEDDED'; }, 1600);
+  }
+
+  async function copyText(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      const tmp = document.createElement('textarea'); tmp.value = text; document.body.appendChild(tmp); tmp.select();
+      const ok = document.execCommand('copy'); tmp.remove(); return ok;
+    }
+  }
+
+  // The official Flutter snippet index supplies runnable examples for additional widgets.
+  async function loadOfficialSnippets() {
+    try {
+      const response = await fetch('https://api.flutter.dev/snippets/index.json', {cache:'force-cache'});
+      if (!response.ok) return;
+      const data = await response.json();
+      state.snippets = data.filter(s => s.package === 'flutter' && s.channel === 'stable' && s.id && s.element);
+      // Add official DartPad samples to reference entries that do not have a hand-authored code sample.
+      for (const widget of widgets) {
+        if (widget.code) continue;
+        const found = state.snippets.find(s => s.element === widget.name || s.element.endsWith(`.${widget.name}`));
+        if (found) {
+          widget.sampleId = found.id;
+          widget.sampleDescription = found.description || '';
+        }
+      }
+      const fallbackSamples = {Card:'material.Card.1', ElevatedButton:'material.ElevatedButton.1', FloatingActionButton:'material.FloatingActionButton.1', Checkbox:'material.Checkbox.1', TextField:'material.TextField.1', AppBar:'material.AppBar.1', AnimatedContainer:'widgets.AnimatedContainer.1', GestureDetector:'widgets.GestureDetector.1', FutureBuilder:'widgets.FutureBuilder.1', StreamBuilder:'widgets.StreamBuilder.1', CupertinoSwitch:'cupertino.CupertinoSwitch.1', CupertinoListTile:'cupertino.CupertinoListTile.1', BottomNavigationBar:'material.BottomNavigationBar.3', SliverAppBar:'material.SliverAppBar.3'};
+      for (const [name, sampleId] of Object.entries(fallbackSamples)) {
+        const widget = widgets.find(w => w.name === name);
+        if (widget && !widget.code && !widget.sampleId) widget.sampleId = sampleId;
+      }
+      // Refresh selected details after dynamic examples are discovered.
+      if (state.selected) updateRunnerAvailability(state.selected);
+      counts();
+    } catch (error) {
+      console.info('Official sample index is unavailable; using bundled examples.', error);
+    }
+  }
+
+  function updateRunnerAvailability(widget) {
+    const hasSample = !!(widget.code || widget.sampleId);
+    $('#detail-run').disabled = !hasSample;
+    $('#detail-run').style.opacity = hasSample ? '1' : '.45';
+    $('#detail-run').title = hasSample ? 'تشغيل المثال' : 'لا يوجد مثال تشغيل متاح لهذا العنصر حالياً';
+    $('#aside-runnable').textContent = widget.code ? 'مثال مدمج' : widget.sampleId ? 'مثال Flutter الرسمي' : 'مرجع API';
+    if (!widget.code && widget.sampleId) $('#detail-code').textContent = `// Official Flutter API sample: ${widget.sampleId}\n// Run it in the interactive playground to open the official sample.\n`;
+  }
+
+  // Event delegation keeps the UI small and makes card navigation work after filtering.
+  document.addEventListener('click', (event) => {
+    const favorite = event.target.closest('[data-favorite]');
+    if (favorite) { event.stopPropagation(); toggleFavorite(favorite.dataset.favorite); return; }
+    const open = event.target.closest('[data-open]');
+    if (open) { showWidget(open.dataset.open); return; }
+    const cat = event.target.closest('[data-category]');
+    if (cat) { state.category = cat.dataset.category; renderCategories(); renderCards(); }
+  });
+  $('#search-input').addEventListener('input', (event) => { state.query = event.target.value; renderCards(); });
+  $('#favorites-filter').addEventListener('click', () => { state.favoritesOnly = !state.favoritesOnly; $('#favorites-filter').classList.toggle('active', state.favoritesOnly); renderCards(); });
+  $('#clear-filters').addEventListener('click', () => { state.query=''; state.category='all'; state.favoritesOnly=false; $('#search-input').value=''; $('#favorites-filter').classList.remove('active'); renderCategories(); renderCards(); });
+  $('#explore-btn').addEventListener('click', () => $('#library').scrollIntoView({behavior:'smooth'}));
+  $('#back-to-catalog').addEventListener('click', () => changeView('catalog'));
+  $('#runner-back').addEventListener('click', () => changeView(state.selected ? 'detail' : 'catalog'));
+  $('#detail-run').addEventListener('click', () => openRunner());
+  $('#detail-copy').addEventListener('click', async () => { if (state.selected?.code && await copyText(state.selected.code)) $('#detail-copy').textContent = 'تم النسخ ✓'; });
+  $('#code-copy').addEventListener('click', async () => { if (state.selected?.code && await copyText(state.selected.code)) $('#code-copy').textContent = 'تم النسخ ✓'; });
+  $('#detail-favorite').addEventListener('click', () => { if (state.selected) toggleFavorite(state.selected.id); });
+  $('#run-code').addEventListener('click', runCode);
+  $('#dartpad-frame-wrap').addEventListener('click', (event) => { if (event.target.closest('#load-sample')) runCode(); });
+  $('#reset-code').addEventListener('click', () => { if (state.selected) $('#runner-code').value = state.selected.code || state.runnerOfficialDefault || ''; });
+  $('#theme-toggle').addEventListener('click', () => setTheme(state.theme === 'dark' ? 'light' : 'dark'));
+  $$('.top-link[data-view]').forEach(btn => btn.addEventListener('click', () => {
+    if (btn.dataset.view === 'runner') {
+      const candidate = state.selected || widgets.find(w => w.code || w.sampleId);
+      if (candidate) openRunner(candidate); else changeView('runner');
+    } else changeView('catalog');
+  }));
+  $('#search-input').addEventListener('keydown', (event) => { if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); $('#search-input').focus(); } });
+  document.addEventListener('keydown', (event) => { if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); $('#search-input').focus(); } });
+  $('#widget-grid').addEventListener('keydown', (event) => { if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('.widget-card')) { event.preventDefault(); showWidget(event.target.dataset.open); } });
+
+  renderCategories(); renderCards(); counts(); loadOfficialSnippets();
+})();
+
+</script>
+</body>
+</html>
