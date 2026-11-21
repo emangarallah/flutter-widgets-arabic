@@ -361,7 +361,7 @@ window.WIDGETS = knownWidgets.map((item, index) => {
 
   function counts() {
     $('#total-widgets').textContent = `${widgets.length}+`;
-    $('#sample-count').textContent = widgets.filter(w => w.code || w.sampleId).length;
+    $('#sample-count').textContent = widgets.filter(w => w.dartpadPath || w.sampleId).length;
     $('#category-count').textContent = categories.length - 1;
     $('#saved-count').textContent = state.favorites.size;
     $('#fav-filter-count').textContent = state.favorites.size;
@@ -586,7 +586,7 @@ window.WIDGETS = knownWidgets.map((item, index) => {
   $('#theme-toggle').addEventListener('click', () => setTheme(state.theme === 'dark' ? 'light' : 'dark'));
   $$('.top-link[data-view]').forEach(btn => btn.addEventListener('click', () => {
     if (btn.dataset.view === 'runner') {
-      const candidate = state.selected || widgets.find(w => w.code || w.sampleId);
+      const candidate = state.selected || widgets.find(w => w.dartpadPath || w.sampleId);
       if (candidate) openRunner(candidate); else changeView('runner');
     } else changeView('catalog');
   }));
